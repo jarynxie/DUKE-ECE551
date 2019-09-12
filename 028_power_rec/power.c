@@ -7,7 +7,7 @@ unsigned power_helper(unsigned x, unsigned y, unsigned curAns) {
 }
 
 unsigned power(unsigned x, unsigned y) {
-  if (x == 0 && y == 0) {
+  if ((x == 0 && y == 0) || y == 0) {
     return 1;
   }
   return power_helper(x, y, x);
