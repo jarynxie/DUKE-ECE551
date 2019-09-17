@@ -18,7 +18,7 @@ size_t maxCal(size_t a, size_t b) {
 
 size_t maxSeq(int * array, size_t n) {
   if (n == 0) {
-    return 1;
+    return 0;
   }
   size_t max = 1;
   size_t curMax = 1;
