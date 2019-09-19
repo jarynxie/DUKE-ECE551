@@ -177,4 +177,6 @@ int main(void) {
   yHi = 20008;
   countEven = countEvenInSeq3Range(xLow, xHi, yLow, yHi);
   printf("countEvenInSeq3Range(%d, %d, %d, %d) = %d\n", xLow, xHi, yLow, yHi, countEven);
+
+  return EXIT_SUCCESS;
 }

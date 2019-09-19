@@ -128,4 +128,6 @@ int main(void) {
   high = 500000005;
   printf("printSeq1Range(%d, %d)\n", low, high);
   printSeq1Range(low, high);
+
+  return EXIT_SUCCESS;
 }

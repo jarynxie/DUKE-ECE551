@@ -169,4 +169,6 @@ int main(void) {
   low = -2100000000;
   high = -2000000000;
   printf("sumSeq2(%d, %d) = %d\n", low, high, sumSeq2(low, high));
+
+  return EXIT_SUCCESS;
 }
