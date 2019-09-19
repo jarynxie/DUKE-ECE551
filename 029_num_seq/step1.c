@@ -53,7 +53,7 @@ int main(void) {
   seq1Result = seq1(seq1In);
   printf("seq1(%d) = %d\n", seq1In, seq1Result);
 
-  seq1In = -500000000;
+  seq1In = -50000000;
   seq1Result = seq1(seq1In);
   printf("seq1(%d) = %d\n", seq1In, seq1Result);
 

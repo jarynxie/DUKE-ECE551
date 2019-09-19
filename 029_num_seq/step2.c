@@ -150,6 +150,10 @@ int main(void) {
   high = 25;
   printf("sumSeq2(%d, %d) = %d\n", low, high, sumSeq2(low, high));
 
+  low = 100;
+  high = 200;
+  printf("sumSeq2(%d, %d) = %d\n", low, high, sumSeq2(low, high));
+
   low = 0;
   high = 0;
   printf("sumSeq2(%d, %d) = %d\n", low, high, sumSeq2(low, high));
