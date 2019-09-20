@@ -9,10 +9,12 @@ void reverse(char * str) {
     strLength++;
     curLoc++;
   }
-  for (int index1 = 0, index2 = strLength - 1; index1 < index2; index1++, index2--) {
-    char temp = str[index1];
-    str[index1] = str[index2];
-    str[index2] = temp;
+  if (strLength > 1) {
+    for (int index1 = 0, index2 = strLength - 1; index1 < index2; index1++, index2--) {
+      char temp = str[index1];
+      str[index1] = str[index2];
+      str[index2] = temp;
+    }
   }
 }
 
