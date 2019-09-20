@@ -3,18 +3,19 @@
 #include <string.h>
 
 void reverse(char * str) {
+  if (str == NULL) {
+    return;
+  }
   int strLength = 0;
   char * curLoc = str;
   while (*curLoc != '\0') {
     strLength++;
     curLoc++;
   }
-  if (strLength > 1) {
-    for (int index1 = 0, index2 = strLength - 1; index1 < index2; index1++, index2--) {
-      char temp = str[index1];
-      str[index1] = str[index2];
-      str[index2] = temp;
-    }
+  for (int index1 = 0, index2 = strLength - 1; index1 < index2; index1++, index2--) {
+    char temp = str[index1];
+    str[index1] = str[index2];
+    str[index2] = temp;
   }
 }
 
