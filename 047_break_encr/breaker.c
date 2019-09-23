@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 int arrayMax(size_t * array, int n) {
-  size_t largest = 0;
-  for (int i = 1; i < n; i++) {
+  int largest = 0;
+  for (int i = 0; i < n; i++) {
     if (array[i] > array[largest]) {
       largest = i;
     }
@@ -34,7 +34,7 @@ int main(int argc, char ** argv) {
   }
   decrypt(f, frequencyArray);
   int largest = arrayMax(frequencyArray, 26);
-  size_t answer = largest + 97;
+  int answer = largest + 97;
   int key = answer - 'e';
   printf("%d\n", key % 26);
   if (fclose(f) != 0) {
