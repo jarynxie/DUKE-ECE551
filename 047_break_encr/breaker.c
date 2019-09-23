@@ -19,7 +19,7 @@ void decrypt(FILE * f, size_t array[]) {
   int c;
   while ((c = fgetc(f)) != EOF) {
     if (isalpha(c)) {
-      array[c - 97]++;
+      array[tolower(c) - 97]++;
     }
   }
 }
