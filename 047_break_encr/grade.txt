@@ -1,0 +1,10 @@
+Grading at 09/23/2019:18:36:21.369542
+For commit ID 7064dd1af60938619b663b2c5bf8409f59c34957
+Grading at Mon Sep 23 14:36:21 EDT 2019
+Attempting to compile breaker.c 
+gcc -std=gnu99 -pedantic -Wall -c breaker.c 
+gcc - o myProgram breaker.o
+Makefile:3: recipe for target 'breaker' failed
+The code did not compile!
+
+Overall Grade: F
