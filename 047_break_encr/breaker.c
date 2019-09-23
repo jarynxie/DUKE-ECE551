@@ -4,7 +4,7 @@
 
 int arrayMax(size_t * array, int n) {
   int largest = 0;
-  for (int i = 0; i < n; i++) {
+  for (int i = 1; i < n; i++) {
     if (array[i] > array[largest]) {
       largest = i;
     }
@@ -36,6 +36,9 @@ int main(int argc, char ** argv) {
   int largest = arrayMax(frequencyArray, 26);
   int answer = largest + 97;
   int key = answer - 'e';
+  if (key < 0) {
+    key += 26;
+  }
   printf("%d\n", key % 26);
   if (fclose(f) != 0) {
     fprintf(stderr, "Failed to close the input file!");
