@@ -3,12 +3,9 @@
 #include <stdlib.h>
 
 int arrayMax(size_t * array, int n) {
-  if (n == 0) {
-    return -1;
-  }
-  size_t largest = array[0];
+  size_t largest = 0;
   for (int i = 1; i < n; i++) {
-    if (array[i] > largest) {
+    if (array[i] > array[largest]) {
       largest = i;
     }
   }
