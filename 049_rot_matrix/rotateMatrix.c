@@ -19,6 +19,7 @@ void readMatrix(FILE * f, int matrix[][10]) {
   }
   if (fgetc(f) != EOF) {
     fprintf(stderr, "Improper input\n");
+    exit(EXIT_FAILURE);
   }
 }
 
