@@ -5,9 +5,11 @@
 
 void readMatrix(FILE * f, int matrix[][10]) {
   char tempString[12] = {0};
+  int countLine = 0;
   for (int i = 0; i < 10; i++) {
     // fgets(tempString, 12, f);
     if (fgets(tempString, 12, f) != NULL) {
+      countLine++;
       if (strchr(tempString, '\n') != tempString + 10) {
         fprintf(stderr, "Improper input\n");
         exit(EXIT_FAILURE);
@@ -17,7 +19,7 @@ void readMatrix(FILE * f, int matrix[][10]) {
       }
     }
   }
-  if (fgetc(f) != EOF) {
+  if (fgetc(f) != EOF || countLine != 10) {
     fprintf(stderr, "Improper input\n");
     exit(EXIT_FAILURE);
   }
