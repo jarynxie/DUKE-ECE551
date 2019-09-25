@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void readMatrix(FILE * f, char matrix[][10]) {
+void readMatrix(FILE * f, int matrix[][10]) {
   char tempString[12] = {0};
   for (int i = 0; i < 10; i++) {
     // fgets(tempString, 12, f);
@@ -19,10 +19,10 @@ void readMatrix(FILE * f, char matrix[][10]) {
   }
 }
 
-void rotateMatrix(char matrix[][10]) {
+void rotateMatrix(int matrix[][10]) {
   for (int i = 0; i < 5; i++) {
     for (int j = i; j < 9 - i; j++) {
-      char temp = matrix[i][j];
+      int temp = matrix[i][j];
       matrix[i][j] = matrix[9 - j][i];
       matrix[9 - j][i] = matrix[9 - i][9 - j];
       matrix[9 - i][9 - j] = matrix[j][9 - i];
@@ -37,7 +37,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  char matrix[10][10];
+  int matrix[10][10];
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
       matrix[i][j] = 0;
