@@ -17,6 +17,9 @@ void readMatrix(FILE * f, int matrix[][10]) {
       }
     }
   }
+  if (fgetc(f) != EOF) {
+    fprintf(stderr, "Improper input\n");
+  }
 }
 
 void rotateMatrix(int matrix[][10]) {
