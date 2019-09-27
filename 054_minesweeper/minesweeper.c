@@ -120,9 +120,9 @@ int countMines(board_t * b, int x, int y) {
       }
     }
   }
-  if (x >= 0 && x < b->width && y >= 0 && y < b->height && IS_MINE(b->board[x][y])) {
-    count--;
-  }
+  //if (x >= 0 && x < b->width && y >= 0 && y < b->height && IS_MINE(b->board[x][y])) {
+  //  count--;
+  //}
   return count;
 }
 
@@ -161,6 +161,7 @@ void freeBoard(board_t * b) {
   }
   free(b->board);
   free(b);
+  b = NULL;
 }
 
 int readInt(char ** linep, size_t * lineszp) {
