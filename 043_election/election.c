@@ -1,5 +1,6 @@
 #include "election.h"
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,6 +27,16 @@ void checkFormat(size_t firstColon, size_t secondColon, size_t thirdColon) {
     exit(EXIT_FAILURE);
   }
 }
+
+void checkDigit(char * line) {
+  for (size_t i = 0; i < strlen(line); i++) {
+    if (isdigit(line[i]) == 0) {
+      fprintf(stderr, "Population or electoralVotes is not digit!\n");
+      exit(EXIT_FAILURE);
+    }
+  }
+}
+
 state_t parseLine(const char * line) {
   state_t ansState;        //the return struct
   size_t firstColon = 0;   //variable for position of the first colon in the input string
@@ -49,9 +60,11 @@ state_t parseLine(const char * line) {
   //assign population string from input
   strncpy(pop, line + firstColon + 1, secondColon - firstColon - 1);
   pop[secondColon - firstColon - 1] = '\0';
+  checkDigit(pop);  //check if the population string is digit
   //assign vote string from input
   strncpy(votes, line + secondColon + 1, length - secondColon - 1);
   votes[length - secondColon - 1] = '\0';
+  checkDigit(votes);  // check if the votes string is digit
   //transfer population and vote strings to integer
   int population = atoi(pop);
   unsigned int electoralVotes = atoi(votes);
@@ -123,6 +136,22 @@ void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
   checkRecount(stateData, votesPopRatio, nStates);
 }
 
+size_t calLargestWin(double * votesPopRatio, size_t nStates) {
+  size_t largestIndex = 0;
+  for (size_t i = 1; i < nStates; i++) {
+    if (votesPopRatio[i] > votesPopRatio[largestIndex]) {
+      largestIndex = i;  //update largestIndex if the ration of current state is larger
+    }
+  }
+  return largestIndex;
+}
 void printLargestWin(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
-  //STEP 4: write me
+  checkCountVoteFormat(stateData, voteCounts, nStates);  //check the input first
+  double votesPopRatio[nStates];  //array to store the votes/population of each state
+  calRatio(stateData, voteCounts, nStates, votesPopRatio);
+  size_t largestIndex = calLargestWin(votesPopRatio, nStates);
+  fprintf(stdout,
+          "Candidate A won %s with %.2f%% of the vote\n",
+          stateData[largestIndex].name,
+          votesPopRatio[largestIndex] * 100);
 }
