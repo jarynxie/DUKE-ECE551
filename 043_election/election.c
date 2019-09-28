@@ -16,7 +16,11 @@ size_t calColonIndex(const char * line, size_t startPos, size_t endPos) {
   return returnIndex;
 }
 
-void checkFormat(size_t secondColon, size_t thirdColon) {
+void checkFormat(size_t firstColon, size_t secondColon, size_t thirdColon) {
+  if (firstColon > MAX_STATE_NAME_LENGTH) {
+    fprintf(stderr, "State name is too long!\n");
+    exit(EXIT_FAILURE);
+  }
   if (secondColon == 0 || thirdColon != 0) {
     fprintf(stderr, "Improper format!\n");
     exit(EXIT_FAILURE);
@@ -35,7 +39,7 @@ state_t parseLine(const char * line) {
   //calculate the position of the third colon
   thirdColon = calColonIndex(line, secondColon + 1, length);
   //check if the input format is correct
-  checkFormat(secondColon, thirdColon);
+  checkFormat(firstColon, secondColon, thirdColon);
   //declare the string for population and votes
   char pop[secondColon - firstColon];
   char votes[length - secondColon];
@@ -91,9 +95,32 @@ unsigned int countElectoralVotes(state_t * stateData,
   }
   return totalCount;
 }
-
+//calculate votes/population ratio of each state
+double * calRatio(state_t * stateData,
+                  uint64_t * voteCounts,
+                  size_t nStates,
+                  double * returnRatio) {
+  for (size_t i = 0; i < nStates; i++) {
+    returnRatio[i] = voteCounts[i] / (double)stateData[i].population;
+  }
+  return returnRatio;
+}
+//check each state if it needs a recount
+void checkRecount(state_t * stateData, double * votesPopRatio, size_t nStates) {
+  for (size_t i = 0; i < nStates; i++) {
+    if (votesPopRatio[i] >= 0.495 && votesPopRatio[i] <= 0.505) {
+      fprintf(stdout,
+              "%s requires a recount (Candidate A has %.2f%% of the vote)\n",
+              stateData[i].name,
+              votesPopRatio[i] * 100);
+    }
+  }
+}
 void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
-  //STEP 3: write me
+  checkCountVoteFormat(stateData, voteCounts, nStates);  //check the input first
+  double votesPopRatio[nStates];  //array to store the votes/population of each state
+  calRatio(stateData, voteCounts, nStates, votesPopRatio);
+  checkRecount(stateData, votesPopRatio, nStates);
 }
 
 void printLargestWin(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
