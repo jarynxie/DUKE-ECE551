@@ -6,10 +6,10 @@
 //include any other headers you need here...
 
 size_t calColonIndex(const char * line, size_t startPos, size_t endPos) {
-  size_t returnIndex = 0;
+  size_t returnIndex = 0;  //position of colon from start to end pos
   for (size_t i = startPos; i < endPos; i++) {
     if (*(line + i) == ':') {
-      returnIndex = i;
+      returnIndex = i;  //set returnIndex the pos of first encountered colon
       break;
     }
   }
@@ -57,11 +57,39 @@ state_t parseLine(const char * line) {
   return ansState;
 }
 
+void checkCountVoteFormat(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
+  if (stateData == NULL) {
+    fprintf(stderr, "Invalid * stateData\n");
+    exit(EXIT_FAILURE);
+  }
+  if (voteCounts == NULL) {
+    fprintf(stderr, "Invalid * voteCounts\n");
+    exit(EXIT_FAILURE);
+  }
+  if (nStates < 0) {
+    fprintf(stderr, "Invalid nStates\n");
+    exit(EXIT_FAILURE);
+  }
+  //check if votecounts of a state exceeds its population or is less than 0
+  for (size_t i = 0; i < nStates; i++) {
+    if (voteCounts[i] > stateData[i].population || voteCounts[i] < 0) {
+      fprintf(stderr, "Invalid voteCounts at %s\n", stateData[i].name);
+      exit(EXIT_FAILURE);
+    }
+  }
+}
+
 unsigned int countElectoralVotes(state_t * stateData,
                                  uint64_t * voteCounts,
                                  size_t nStates) {
-  //STEP 2: write me
-  return 0;
+  checkCountVoteFormat(stateData, voteCounts, nStates);  //check the input first
+  size_t totalCount = 0;  // variable for counting total votes
+  for (size_t i = 0; i < nStates; i++) {
+    if (voteCounts[i] / (double)stateData[i].population > 0.5) {
+      totalCount += stateData[i].electoralVotes;
+    }
+  }
+  return totalCount;
 }
 
 void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
