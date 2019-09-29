@@ -74,7 +74,7 @@ state_t parseLine(const char * line) {
   return ansState;
 }
 
-void checkCountVoteFormat(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
+void checkCountVoteFormat(state_t * stateData, uint64_t * voteCounts) {
   if (stateData == NULL) {
     fprintf(stderr, "Invalid * stateData\n");
     exit(EXIT_FAILURE);
@@ -83,24 +83,13 @@ void checkCountVoteFormat(state_t * stateData, uint64_t * voteCounts, size_t nSt
     fprintf(stderr, "Invalid * voteCounts\n");
     exit(EXIT_FAILURE);
   }
-  if (nStates < 0) {
-    fprintf(stderr, "Invalid nStates\n");
-    exit(EXIT_FAILURE);
-  }
-  //check if votecounts of a state exceeds its population or is less than 0
-  for (size_t i = 0; i < nStates; i++) {
-    if (voteCounts[i] > stateData[i].population || voteCounts[i] < 0) {
-      fprintf(stderr, "Invalid voteCounts at %s\n", stateData[i].name);
-      exit(EXIT_FAILURE);
-    }
-  }
 }
 
 unsigned int countElectoralVotes(state_t * stateData,
                                  uint64_t * voteCounts,
                                  size_t nStates) {
-  checkCountVoteFormat(stateData, voteCounts, nStates);  //check the input first
-  size_t totalCount = 0;  // variable for counting total votes
+  checkCountVoteFormat(stateData, voteCounts);  //check the input first
+  size_t totalCount = 0;                        // variable for counting total votes
   for (size_t i = 0; i < nStates; i++) {
     if (voteCounts[i] / (double)stateData[i].population > 0.5) {
       totalCount += stateData[i].electoralVotes;
@@ -130,7 +119,7 @@ void checkRecount(state_t * stateData, double * votesPopRatio, size_t nStates) {
   }
 }
 void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
-  checkCountVoteFormat(stateData, voteCounts, nStates);  //check the input first
+  checkCountVoteFormat(stateData, voteCounts);  //check the input first
   double votesPopRatio[nStates];  //array to store the votes/population of each state
   calRatio(stateData, voteCounts, nStates, votesPopRatio);
   checkRecount(stateData, votesPopRatio, nStates);
@@ -146,7 +135,7 @@ size_t calLargestWin(double * votesPopRatio, size_t nStates) {
   return largestIndex;
 }
 void printLargestWin(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
-  checkCountVoteFormat(stateData, voteCounts, nStates);  //check the input first
+  checkCountVoteFormat(stateData, voteCounts);  //check the input first
   double votesPopRatio[nStates];  //array to store the votes/population of each state
   calRatio(stateData, voteCounts, nStates, votesPopRatio);
   size_t largestIndex = calLargestWin(votesPopRatio, nStates);
