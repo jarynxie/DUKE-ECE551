@@ -1,6 +1,6 @@
-Grading at 09/28/2019:21:43:15.760305
-For commit ID c907f08ee96f540e8128fbabe24bea14321716c7
-Grading at Sat Sep 28 17:43:15 EDT 2019
+Grading at 09/29/2019:00:04:07.167901
+For commit ID 3ba8a071897f103a30b38057d01c9b634dccb6f5
+Grading at Sat Sep 28 20:04:06 EDT 2019
 [32mfound function state_t  parseLine(const char * line)[0m
 [32mfound function unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, size_t   nStates)[0m
 [32mfound function void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates)[0m
