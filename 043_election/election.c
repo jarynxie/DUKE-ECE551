@@ -66,7 +66,7 @@ state_t parseLine(const char * line) {
   votes[length - secondColon - 1] = '\0';
   checkDigit(votes);  // check if the votes string is digit
   //transfer population and vote strings to integer
-  int population = atoi(pop);
+  uint64_t population = atoi(pop);
   unsigned int electoralVotes = atoi(votes);
   //assign the population and votes of the returned struct
   ansState.population = population;
