@@ -38,8 +38,8 @@ kvarray_t * readKVs(const char * fname) {
     answer->length++;
     answer->kvpairs[i] = NULL;
     answer->kvpairs[i] = malloc(sizeof(*answer->kvpairs[i]));
-    answer->kvpairs[i]->key = malloc(sizeof(*answer->kvpairs[i]->key));
-    answer->kvpairs[i]->value = malloc(sizeof(*answer->kvpairs[i]->value));
+    //answer->kvpairs[i]->key = malloc(sizeof(*answer->kvpairs[i]->key));
+    //answer->kvpairs[i]->value = malloc(sizeof(*answer->kvpairs[i]->value));
     stripNewLine(curr);
     firstEqual = getEqualPos(curr);
     answer->kvpairs[i]->key = strndup(curr, firstEqual);
