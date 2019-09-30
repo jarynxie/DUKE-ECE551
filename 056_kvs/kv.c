@@ -38,12 +38,11 @@ kvarray_t * readKVs(const char * fname) {
     answer->length++;
     answer->kvpairs[i] = NULL;
     answer->kvpairs[i] = malloc(sizeof(*answer->kvpairs[i]));
-    //answer->kvpairs[i]->key = malloc(sizeof(*answer->kvpairs[i]->key));
-    //answer->kvpairs[i]->value = malloc(sizeof(*answer->kvpairs[i]->value));
     stripNewLine(curr);
     firstEqual = getEqualPos(curr);
     answer->kvpairs[i]->key = strndup(curr, firstEqual);
     answer->kvpairs[i]->value = strdup(curr + firstEqual + 1);
+    free(curr);
     curr = NULL;
     i++;
   }
@@ -56,7 +55,7 @@ kvarray_t * readKVs(const char * fname) {
 }
 
 void freeKVs(kvarray_t * pairs) {
-  for (int i = 0; i < pairs->length; i++) {
+  for (size_t i = 0; i < pairs->length; i++) {
     free(pairs->kvpairs[i]->key);
     free(pairs->kvpairs[i]->value);
     free(pairs->kvpairs[i]);
