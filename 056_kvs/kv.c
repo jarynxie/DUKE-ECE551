@@ -42,8 +42,8 @@ kvarray_t * readKVs(const char * fname) {
     firstEqual = getEqualPos(curr);
     answer->kvpairs[i]->key = strndup(curr, firstEqual);
     answer->kvpairs[i]->value = strdup(curr + firstEqual + 1);
-    free(curr);
-    curr = NULL;
+    //free(curr);
+    //curr = NULL;
     i++;
   }
   free(curr);
