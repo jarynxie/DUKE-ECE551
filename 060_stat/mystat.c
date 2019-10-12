@@ -117,9 +117,8 @@ char getWritePermChar(struct stat statbuf, mode_t checkbit) {
 char getExecutePermChar(struct stat statbuf, mode_t checkbit) {
   return (statbuf.st_mode & checkbit) ? 'x' : '-';
 }
-//step2: print "Access" in forth line of stat
-void printStep2(struct stat statbuf) {
-  char permission[11];
+//get the ten characters readable permissions
+void getReadablePermission(char permission[], struct stat statbuf) {
   permission[0] = getFirstPermChar(statbuf);
   permission[1] = getReadPermChar(statbuf, S_IRUSR);
   permission[2] = getWritePermChar(statbuf, S_IWUSR);
@@ -131,7 +130,34 @@ void printStep2(struct stat statbuf) {
   permission[8] = getWritePermChar(statbuf, S_IWOTH);
   permission[9] = getExecutePermChar(statbuf, S_IXOTH);
   permission[10] = '\0';
-  printf("Access: (%04o/%s)\n", statbuf.st_mode & ~S_IFMT, permission);
+}
+//get the ownerName from struct passwd
+void getOwnerName(char ** ownerName, struct stat statbuf) {
+  *ownerName = strdup(getpwuid(statbuf.st_uid)->pw_name);
+}
+//get the groupName from struct group
+void getGroupName(char ** groupName, struct stat statbuf) {
+  *groupName = strdup(getgrgid(statbuf.st_gid)->gr_name);
+}
+//step2&3: print the  forth line of stat
+void printStep2And3(struct stat statbuf) {
+  char permission[11];
+  getReadablePermission(permission, statbuf);
+  char * ownerName;
+  getOwnerName(&ownerName, statbuf);
+  char * groupName;
+  getOwnerName(&groupName, statbuf);
+  //struct passwd * ownerStruct =  getpwuid(statbuf.st_uid);
+  //char * ownerName = ownerStruct->pw_name;
+  printf("Access: (%04o/%s)  Uid: (%5d/%8s)   Gid: (%5d/%8s)\n",
+         statbuf.st_mode & ~S_IFMT,  //The permissions in octal.
+         permission,                 //The human readable description of the permissions
+         statbuf.st_uid,             //The user ID of the owner, as a number.
+         ownerName,                  //name of the owner
+         statbuf.st_gid,             //The group ID of the owning group, as a number.
+         groupName);                 //the group name of the owning group
+  free(ownerName);
+  free(groupName);
 }
 int main(int argc, char * argv[]) {
   struct stat statbuf;
@@ -148,8 +174,8 @@ int main(int argc, char * argv[]) {
   char * fileType;
   fileType = getFileType(statbuf);  //get fileType by the function getFileType
   printStep1(argv[1], statbuf,
-             fileType);  //print step1: print first three lines of stat
-  printStep2(statbuf);   //print step2: "Access"
+             fileType);     //print step1: print first three lines of stat
+  printStep2And3(statbuf);  //print step2&3: print the forth line of stat
   /*
   //This function is for Step 4
   char * time2str(const time_t * when, long ns) {
