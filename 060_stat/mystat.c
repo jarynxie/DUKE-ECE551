@@ -196,20 +196,23 @@ void printStep4(struct stat statbuf) {
 
 int main(int argc, char * argv[]) {
   struct stat statbuf;
-  //check if mystat onlu take one filename as command line argument
-  if (argc != 2) {
+  //check if mystat onlu take at least one filename as command line argument
+  if (argc < 2) {
     fprintf(stderr, "Usage: %s <pathname>\n", argv[0]);
     exit(EXIT_FAILURE);
   }
-  //check if lstat works properly
-  if (lstat(argv[1], &statbuf) == -1) {
-    perror("lstat");
-    exit(EXIT_FAILURE);
+  for (int i = 1; i < argc; i++) {
+    //check if lstat works properly
+    if (lstat(argv[i], &statbuf) == -1) {
+      perror("lstat");
+      exit(EXIT_FAILURE);
+    }
+    char * fileType;
+    fileType = getFileType(statbuf);  //get fileType by the function getFileType
+    printStep1(argv[i],
+               statbuf,
+               fileType);     //print step1: print first three lines of stat
+    printStep2And3(statbuf);  //print step2&3: print the forth line of stat
+    printStep4(statbuf);      //print step4: print the last four lines of stat
   }
-  char * fileType;
-  fileType = getFileType(statbuf);  //get fileType by the function getFileType
-  printStep1(argv[1], statbuf,
-             fileType);     //print step1: print first three lines of stat
-  printStep2And3(statbuf);  //print step2&3: print the forth line of stat
-  printStep4(statbuf);      //print step4: print the last four lines of stat
 }
