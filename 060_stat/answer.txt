@@ -1,9 +1,0 @@
-9,16d8
-<   File: -
-<   Size: 0         	Blocks: 0          IO Block: 1024   character special file
-< Device: 15h/21d	Inode: 8           Links: 1     Device type: 88,5
-< Access: (0620/crw--w----)  Uid: ( 1449/    jx95)   Gid: (    5/     tty)
-< Access: 2019-10-12 00:57:45.642911998 -0400
-< Modify: 2019-10-12 00:57:45.642911998 -0400
-< Change: 2019-10-12 00:35:08.642911998 -0400
-<  Birth: -

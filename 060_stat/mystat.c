@@ -46,9 +46,18 @@ char * getFileType(struct stat statbuf) {
   return answer;
 }
 
-//step1&6: print the first three lines of stat
-void printStep1And6(char * file, struct stat statbuf, char * fileType) {
-  printf("  File: %s\n", file);  //print filename
+//step1&6&7: print the first three lines of stat
+void printFirstThreeLine(char * file, struct stat statbuf, char * fileType) {
+  if (S_ISLNK(statbuf.st_mode)) {  //check if the file is a symbolic link
+    //get the target of the link
+    char linktarget[256];
+    ssize_t len = readlink(file, linktarget, 256);
+    linktarget[len] = '\0';
+    printf("  File: %s -> %s\n", file, linktarget);
+  }
+  else {
+    printf("  File: %s\n", file);  //print filename
+  }
   printf("  Size: %-10lu\tBlocks: %-10lu IO Block: %-6lu %s\n",
          statbuf.st_size,     //print Total size, in bytes
          statbuf.st_blocks,   //print Number of 512B blocks allocated
@@ -160,7 +169,7 @@ void getGroupName(char ** groupName, struct stat statbuf) {
 }
 
 //step2&3: print the  forth line of stat
-void printStep2And3(struct stat statbuf) {
+void printForthLine(struct stat statbuf) {
   char permission[11];
   getReadablePermission(permission, statbuf);
   char * ownerName;
@@ -220,10 +229,10 @@ int main(int argc, char * argv[]) {
     }
     char * fileType;
     fileType = getFileType(statbuf);  //get fileType by the function getFileType
-    printStep1And6(argv[i],
-                   statbuf,
-                   fileType);  //print step1&6: print first three lines of stat
-    printStep2And3(statbuf);   //print step2&3: print the forth line of stat
-    printStep4(statbuf);       //print step4: print the last four lines of stat
+    printFirstThreeLine(argv[i],
+                        statbuf,
+                        fileType);  //print step1&6&7: print first three lines of stat
+    printForthLine(statbuf);        //print step2&3: print the forth line of stat
+    printStep4(statbuf);            //print step4: print the last four lines of stat
   }
 }
