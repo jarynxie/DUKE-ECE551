@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <sys/sysmacros.h>
 #include <sys/types.h>
 #include <time.h>
 #include <unistd.h>
@@ -45,19 +46,30 @@ char * getFileType(struct stat statbuf) {
   return answer;
 }
 
-//step1: print the first three lines of stat
-void printStep1(char * file, struct stat statbuf, char * fileType) {
+//step1&6: print the first three lines of stat
+void printStep1And6(char * file, struct stat statbuf, char * fileType) {
   printf("  File: %s\n", file);  //print filename
   printf("  Size: %-10lu\tBlocks: %-10lu IO Block: %-6lu %s\n",
          statbuf.st_size,     //print Total size, in bytes
          statbuf.st_blocks,   //print Number of 512B blocks allocated
          statbuf.st_blksize,  //print Block size for filesystem I/O
          fileType);           //print fileType got by the function getFileType
-  printf("Device: %lxh/%lud\tInode: %-10lu  Links: %lu\n",
-         (long)statbuf.st_dev,  //print ID of device containing file
-         (long)statbuf.st_dev,  //print ID of device containing file
-         statbuf.st_ino,        //print Inode number
-         statbuf.st_nlink);     //print Number of hard links
+  if (S_ISCHR(statbuf.st_mode) || S_ISBLK(statbuf.st_mode)) {
+    printf("Device: %lxh/%lud\tInode: %-10lu  Links: %-5lu Device type: %d,%d\n",
+           (long)statbuf.st_dev,     //print ID of device containing file
+           (long)statbuf.st_dev,     //print ID of device containing file
+           statbuf.st_ino,           //print Inode number
+           statbuf.st_nlink,         //print Number of hard links
+           major(statbuf.st_rdev),   //"major" numbers of the file's device ID
+           minor(statbuf.st_rdev));  //"minor" numbers of the file's device ID
+  }
+  else {
+    printf("Device: %lxh/%lud\tInode: %-10lu  Links: %lu\n",
+           (long)statbuf.st_dev,  //print ID of device containing file
+           (long)statbuf.st_dev,  //print ID of device containing file
+           statbuf.st_ino,        //print Inode number
+           statbuf.st_nlink);     //print Number of hard links
+  }
 }
 
 //get the first character of readable permission
@@ -193,7 +205,6 @@ void printStep4(struct stat statbuf) {
   free(modifyTime);
   free(changeTime);
 }
-
 int main(int argc, char * argv[]) {
   struct stat statbuf;
   //check if mystat onlu take at least one filename as command line argument
@@ -209,10 +220,10 @@ int main(int argc, char * argv[]) {
     }
     char * fileType;
     fileType = getFileType(statbuf);  //get fileType by the function getFileType
-    printStep1(argv[i],
-               statbuf,
-               fileType);     //print step1: print first three lines of stat
-    printStep2And3(statbuf);  //print step2&3: print the forth line of stat
-    printStep4(statbuf);      //print step4: print the last four lines of stat
+    printStep1And6(argv[i],
+                   statbuf,
+                   fileType);  //print step1&6: print first three lines of stat
+    printStep2And3(statbuf);   //print step2&3: print the forth line of stat
+    printStep4(statbuf);       //print step4: print the last four lines of stat
   }
 }
