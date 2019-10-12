@@ -59,6 +59,7 @@ void printStep1(char * file, struct stat statbuf, char * fileType) {
          statbuf.st_ino,        //print Inode number
          statbuf.st_nlink);     //print Number of hard links
 }
+
 //get the first character of readable permission
 //The first is either 'b','c', 'd', 'p', 'l', '-', or 's' depending on the file type
 //corresponding to S_IFBLK, S_IFCHR, S_IFDIR, S_IFIFO, S_IFLNK, S_IFREG, S_IFSOCK in that order)
@@ -96,6 +97,7 @@ char getFirstPermChar(struct stat statbuf) {
   }
   return answer;
 }
+
 //get the READ permission character of the readable permission
 //If st_mode & checkbit is non-zero,
 //the owner has read permission, and you should put 'r' here.
@@ -103,6 +105,7 @@ char getFirstPermChar(struct stat statbuf) {
 char getReadPermChar(struct stat statbuf, mode_t checkbit) {
   return (statbuf.st_mode & checkbit) ? 'r' : '-';
 }
+
 //get the WRITE character of the readable permission
 //If st_mode & checkbit is non-zero,
 //the owner has write permission, and you should put 'w' here.
@@ -110,6 +113,7 @@ char getReadPermChar(struct stat statbuf, mode_t checkbit) {
 char getWritePermChar(struct stat statbuf, mode_t checkbit) {
   return (statbuf.st_mode & checkbit) ? 'w' : '-';
 }
+
 //get the EXECUTE  character of the readable permission
 //If st_mode & checkbit is non-zero,
 //the owner has execute permission, and you should put 'x' here.
@@ -117,6 +121,7 @@ char getWritePermChar(struct stat statbuf, mode_t checkbit) {
 char getExecutePermChar(struct stat statbuf, mode_t checkbit) {
   return (statbuf.st_mode & checkbit) ? 'x' : '-';
 }
+
 //get the ten characters readable permissions
 void getReadablePermission(char permission[], struct stat statbuf) {
   permission[0] = getFirstPermChar(statbuf);
@@ -131,14 +136,17 @@ void getReadablePermission(char permission[], struct stat statbuf) {
   permission[9] = getExecutePermChar(statbuf, S_IXOTH);
   permission[10] = '\0';
 }
+
 //get the ownerName from struct passwd
 void getOwnerName(char ** ownerName, struct stat statbuf) {
   *ownerName = strdup(getpwuid(statbuf.st_uid)->pw_name);
 }
+
 //get the groupName from struct group
 void getGroupName(char ** groupName, struct stat statbuf) {
   *groupName = strdup(getgrgid(statbuf.st_gid)->gr_name);
 }
+
 //step2&3: print the  forth line of stat
 void printStep2And3(struct stat statbuf) {
   char permission[11];
@@ -159,6 +167,33 @@ void printStep2And3(struct stat statbuf) {
   free(ownerName);
   free(groupName);
 }
+
+//This function is for Step 4
+char * time2str(const time_t * when, long ns) {
+  char * ans = malloc(128 * sizeof(*ans));
+  char temp1[64];
+  char temp2[32];
+  const struct tm * t = localtime(when);
+  strftime(temp1, 512, "%Y-%m-%d %H:%M:%S", t);
+  strftime(temp2, 32, "%z", t);
+  snprintf(ans, 128, "%s.%09ld %s", temp1, ns, temp2);
+  return ans;
+}
+
+//step4: print the last four lines of stat
+void printStep4(struct stat statbuf) {
+  char * accessTime = time2str(&statbuf.st_atime, statbuf.st_atim.tv_nsec);
+  char * modifyTime = time2str(&statbuf.st_mtime, statbuf.st_mtim.tv_nsec);
+  char * changeTime = time2str(&statbuf.st_ctime, statbuf.st_ctim.tv_nsec);
+  printf("Access: %s\n", accessTime);
+  printf("Modify: %s\n", modifyTime);
+  printf("Change: %s\n", changeTime);
+  printf(" Birth: -\n");
+  free(accessTime);
+  free(modifyTime);
+  free(changeTime);
+}
+
 int main(int argc, char * argv[]) {
   struct stat statbuf;
   //check if mystat onlu take one filename as command line argument
@@ -176,16 +211,5 @@ int main(int argc, char * argv[]) {
   printStep1(argv[1], statbuf,
              fileType);     //print step1: print first three lines of stat
   printStep2And3(statbuf);  //print step2&3: print the forth line of stat
-  /*
-  //This function is for Step 4
-  char * time2str(const time_t * when, long ns) {
-    char * ans = malloc(128 * sizeof(*ans));
-    char temp1[64];
-    char temp2[32];
-    const struct tm * t = localtime(when);
-    strftime(temp1, 512, "%Y-%m-%d %H:%M:%S", t);
-    strftime(temp2, 32, "%z", t);
-    snprintf(ans, 128, "%s.%09ld %s", temp1, ns, temp2);
-    return ans;
-  */
+  printStep4(statbuf);      //print step4: print the last four lines of stat
 }
