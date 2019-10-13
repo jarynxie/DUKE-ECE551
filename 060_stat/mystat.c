@@ -175,7 +175,7 @@ void printForthLine(struct stat statbuf) {
   char * ownerName;
   getOwnerName(&ownerName, statbuf);
   char * groupName;
-  getOwnerName(&groupName, statbuf);
+  getGroupName(&groupName, statbuf);
   //struct passwd * ownerStruct =  getpwuid(statbuf.st_uid);
   //char * ownerName = ownerStruct->pw_name;
   printf("Access: (%04o/%s)  Uid: (%5d/%8s)   Gid: (%5d/%8s)\n",
