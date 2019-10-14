@@ -1,8 +1,8 @@
-CFLAGS=-std=gnu++98 -pedantic -Wall
-myCode: code.o
-	g++ -o myCode code.o
-%.o : %.cpp
-	gcc $(CFLAGS) -cpp $< 
+CPPFLAGS=-std=gnu++98 -pedantic -Wall -Werror -ggdb3
+code: code.o 
+	g++ -o code code.o
+code.o: code.cpp
+	g++ $(CPPFLAGS) -c code.cpp
 .PHONY: clean
 clean:
-	rm -f code *.o *.cpp~ *.h~
+	rm -f *.o *~ code
