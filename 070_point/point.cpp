@@ -1,4 +1,4 @@
-#include "point.hpp"
+#include "point.h"
 
 #include <cmath>
 #include <cstdio>

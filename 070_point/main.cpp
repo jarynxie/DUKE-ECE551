@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "point.hpp"
+#include "point.h"
 
 char * skipWs(char * line) {
   while (*line != '\0' && isspace(*line)) {

@@ -6,7 +6,7 @@ PROGRAM=points
 $(PROGRAM): $(OBJS)
 	g++ $(CFLAGS) -o $@ $(OBJS)
 
-%.o: %.cpp point.hpp
+%.o: %.cpp point.h
 	g++ -c $(CFLAGS) $<
 
 clean:
