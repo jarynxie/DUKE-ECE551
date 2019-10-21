@@ -23,6 +23,10 @@ int main(int argc, char ** argv) {
   if (argc >= 1) {
     for (int i = 1; i < argc; i++) {
       std::ifstream input(argv[i]);
+      if (!input.good()) {
+        std::cout << "Failed to read file" << std::endl;
+        return EXIT_FAILURE;
+      }
       sortnPrint(input);
     }
   }
