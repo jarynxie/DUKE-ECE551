@@ -1,6 +1,6 @@
-Grading at 10/21/2019:22:43:40.077755
-For commit ID c09f6ecf812c76056565f10cc05aa6866aac3fcc
-Grading at Mon Oct 21 18:43:34 EDT 2019
+Grading at 10/21/2019:23:53:47.650132
+For commit ID 7458fbdae2c15af894a61713dad832e61feca70d
+Grading at Mon Oct 21 19:53:42 EDT 2019
 Looking for malloc in your files
 No uses found (good).
 Looking for free in your files
@@ -14,14 +14,16 @@ No uses found (good).
 Looking for printf in your files
 No uses found (good).
 Attempting to compile with make
-make: 'sortLines' is up to date.
+g++ -o sortLines sortLines.o
 Using sortLines..
 #################################################
 testcase1:
 testcase1 failed, your program didn't indicate this is a failure case
 #################################################
 testcase2:
-Your output is incorrect
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase3:
 Your output is correct
@@ -33,4 +35,4 @@ Your output is correct
   - Valgrind was clean (no errors, no memory leaks)
 valgrind was clean
 
-Overall Grade: D
+Overall Grade: B
