@@ -24,12 +24,12 @@ int main(int argc, char ** argv) {
   if (argc == 1) {
     sortnPrint(std::cin);
   }
-  if (argc >= 1) {
+  if (argc > 1) {
     for (int i = 1; i < argc; i++) {
       std::ifstream input(argv[i]);
       if (!input) {
         std::cout << "Failed to read file" << std::endl;
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
       }
       sortnPrint(input);
     }
