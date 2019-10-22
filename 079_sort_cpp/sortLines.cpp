@@ -11,7 +11,7 @@ void sortnPrint(std::istream & stream) {
     lines.push_back(line);
   }
   if (!stream.eof() && !stream) {
-    std::cout << "Failed to read file" << std::endl;
+    std::cerr << "Failed to read file" << std::endl;
     exit(EXIT_FAILURE);
   }
   std::sort(lines.begin(), lines.end());
@@ -28,7 +28,7 @@ int main(int argc, char ** argv) {
     for (int i = 1; i < argc; i++) {
       std::ifstream input(argv[i]);
       if (!input) {
-        std::cout << "Failed to read file" << std::endl;
+        std::cerr << "Failed to read file" << std::endl;
         exit(EXIT_FAILURE);
       }
       sortnPrint(input);
