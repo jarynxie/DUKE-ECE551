@@ -135,14 +135,14 @@ std::ostream & operator<<(std::ostream & s, const std::vector<T> & rhs) {
 
 template<typename T>
 std::ostream & operator<<(std::ostream & s, const Matrix<T> & rhs) {
-  s << "[";
+  s << "[ ";
   for (int i = 0; i < rhs.getRows(); i++) {
     s << rhs[i];
     if (i != rhs.getRows() - 1) {
       s << "," << std::endl;
     }
-    s << " ]";
   }
+  s << " ]";
   return s;
 }
 
