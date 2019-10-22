@@ -1,75 +1,27 @@
-Grading at 10/22/2019:02:16:51.443243
-For commit ID 9ea4604f6a12fd8bde2884a1b1478988c73b0f00
-Grading at Mon Oct 21 22:16:44 EDT 2019
+Grading at 10/22/2019:02:20:18.472344
+For commit ID 2f0580055a13de5f4c84ec36a6d439cbc02aee9e
+Grading at Mon Oct 21 22:20:11 EDT 2019
 -----------------------------------------------
 testcase 1 : Testing with Matrix<int>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_2_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_9_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_18_did_not_match
-Line_19_did_not_match
-Line_20_did_not_match
-Line_24_did_not_match
-Line_27_did_not_match
-Line_28_did_not_match
-Line_29_did_not_match
-Line_31_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with Matrix<std::string>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_2_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_9_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_18_did_not_match
-Line_19_did_not_match
-Line_20_did_not_match
-Line_24_did_not_match
-Line_27_did_not_match
-Line_28_did_not_match
-Line_29_did_not_match
-Line_31_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with Matrix<(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_2_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_9_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_18_did_not_match
-Line_19_did_not_match
-Line_20_did_not_match
-Line_24_did_not_match
-Line_27_did_not_match
-Line_28_did_not_match
-Line_29_did_not_match
-Line_31_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 --------------------------------------------
 Preparing to test assert fails...
 Compiling assertion failure tester...
@@ -95,4 +47,4 @@ testcase 7 :  operator+: different number of columns
 Your file matched the expected output
 Testcase passed
 
-Overall Grade: F
+Overall Grade: A
