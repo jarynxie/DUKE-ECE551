@@ -15,8 +15,10 @@ void sortnPrint(std::istream & stream) {
     exit(EXIT_FAILURE);
   }
   std::sort(lines.begin(), lines.end());
-  for (size_t i = 0; i < lines.size(); i++) {
-    std::cout << lines[i] << std::endl;
+  typename std::vector<std::string>::const_iterator it = lines.begin();
+  while (it != lines.end()) {
+    std::cout << *it << std::endl;
+    ++it;
   }
 }
 
