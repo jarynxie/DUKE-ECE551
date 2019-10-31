@@ -1,44 +1,332 @@
-Grading at 10/31/2019:18:52:58.065221
-For commit ID f301ebdd48fc0223db30a1beaa9908395384263b
-Grading at Thu Oct 31 14:52:57 EDT 2019
+Grading at 10/31/2019:18:55:51.350076
+For commit ID 5f2910cdf27ea6abf64ada6063ba3c6ab813ce9f
+Grading at Thu Oct 31 14:55:48 EDT 2019
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
-In file included from tester.cpp:1:0:
-ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]’:
-tester.cpp:94:11:   required from here
-ll.h:42:13: error: ‘(LinkedList<int>*)this’ is not of type ‘LinkedList<int>’
-       this.~LinkedList();
-       ~~~~~~^~~~~~~~~~
-ll.h:44:12: error: lvalue required as left operand of assignment
-       this = temp;
-       ~~~~~^~~~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_189_did_not_match
+Line_190_did_not_match
+Line_191_did_not_match
+Line_192_did_not_match
+Line_193_did_not_match
+Line_194_did_not_match
+Line_195_did_not_match
+Line_196_did_not_match
+Line_197_did_not_match
+Line_198_did_not_match
+Line_199_did_not_match
+Line_200_did_not_match
+Line_201_did_not_match
+Line_202_did_not_match
+Line_203_did_not_match
+Line_204_did_not_match
+Line_205_did_not_match
+Line_206_did_not_match
+Line_207_did_not_match
+Line_208_did_not_match
+Line_209_did_not_match
+Line_210_did_not_match
+Line_211_did_not_match
+Line_212_did_not_match
+Line_213_did_not_match
+Line_214_did_not_match
+Line_215_did_not_match
+Line_216_did_not_match
+Line_217_did_not_match
+Line_218_did_not_match
+Line_219_did_not_match
+Line_220_did_not_match
+Line_221_did_not_match
+Line_222_did_not_match
+Line_223_did_not_match
+Line_224_did_not_match
+Line_225_did_not_match
+Line_226_did_not_match
+Line_227_did_not_match
+Line_228_did_not_match
+Line_229_did_not_match
+Line_230_did_not_match
+Line_231_did_not_match
+Line_232_did_not_match
+Line_233_did_not_match
+Line_234_did_not_match
+Line_235_did_not_match
+Line_236_did_not_match
+Line_237_did_not_match
+Line_238_did_not_match
+Line_239_did_not_match
+Line_298_did_not_match
+Line_299_did_not_match
+Line_300_did_not_match
+Line_301_did_not_match
+Line_302_did_not_match
+Line_303_did_not_match
+Line_304_did_not_match
+Line_305_did_not_match
+Line_306_did_not_match
+Line_307_did_not_match
+Line_308_did_not_match
+Line_309_did_not_match
+Line_310_did_not_match
+Line_311_did_not_match
+Line_312_did_not_match
+Line_313_did_not_match
+Line_314_did_not_match
+Line_315_did_not_match
+Line_316_did_not_match
+Line_317_did_not_match
+Line_318_did_not_match
+Line_319_did_not_match
+Line_320_did_not_match
+Line_321_did_not_match
+Line_322_did_not_match
+Line_323_did_not_match
+Line_324_did_not_match
+Line_325_did_not_match
+Line_326_did_not_match
+Line_327_did_not_match
+Line_328_did_not_match
+Line_329_did_not_match
+Line_330_did_not_match
+Line_331_did_not_match
+Line_332_did_not_match
+Line_333_did_not_match
+Line_334_did_not_match
+Line_335_did_not_match
+Line_336_did_not_match
+Line_337_did_not_match
+Line_338_did_not_match
+Line_339_did_not_match
+Line_340_did_not_match
+Line_341_did_not_match
+Line_342_did_not_match
+Line_343_did_not_match
+Line_344_did_not_match
+Line_345_did_not_match
+Line_346_did_not_match
+Line_347_did_not_match
+Line_348_did_not_match
+Your file did not match the expected ouput
+Testcase failed 
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
 ...compiling...
-In file included from tester.cpp:1:0:
-ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
-tester.cpp:94:11:   required from here
-ll.h:42:13: error: ‘(LinkedList<std::__cxx11::basic_string<char> >*)this’ is not of type ‘LinkedList<std::__cxx11::basic_string<char> >’
-       this.~LinkedList();
-       ~~~~~~^~~~~~~~~~
-ll.h:44:12: error: lvalue required as left operand of assignment
-       this = temp;
-       ~~~~~^~~~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_189_did_not_match
+Line_190_did_not_match
+Line_191_did_not_match
+Line_192_did_not_match
+Line_193_did_not_match
+Line_194_did_not_match
+Line_195_did_not_match
+Line_196_did_not_match
+Line_197_did_not_match
+Line_198_did_not_match
+Line_199_did_not_match
+Line_200_did_not_match
+Line_201_did_not_match
+Line_202_did_not_match
+Line_203_did_not_match
+Line_204_did_not_match
+Line_205_did_not_match
+Line_206_did_not_match
+Line_207_did_not_match
+Line_208_did_not_match
+Line_209_did_not_match
+Line_210_did_not_match
+Line_211_did_not_match
+Line_212_did_not_match
+Line_213_did_not_match
+Line_214_did_not_match
+Line_215_did_not_match
+Line_216_did_not_match
+Line_217_did_not_match
+Line_218_did_not_match
+Line_219_did_not_match
+Line_220_did_not_match
+Line_221_did_not_match
+Line_222_did_not_match
+Line_223_did_not_match
+Line_224_did_not_match
+Line_225_did_not_match
+Line_226_did_not_match
+Line_227_did_not_match
+Line_228_did_not_match
+Line_229_did_not_match
+Line_230_did_not_match
+Line_231_did_not_match
+Line_232_did_not_match
+Line_233_did_not_match
+Line_234_did_not_match
+Line_235_did_not_match
+Line_236_did_not_match
+Line_237_did_not_match
+Line_238_did_not_match
+Line_239_did_not_match
+Line_298_did_not_match
+Line_299_did_not_match
+Line_300_did_not_match
+Line_301_did_not_match
+Line_302_did_not_match
+Line_303_did_not_match
+Line_304_did_not_match
+Line_305_did_not_match
+Line_306_did_not_match
+Line_307_did_not_match
+Line_308_did_not_match
+Line_309_did_not_match
+Line_310_did_not_match
+Line_311_did_not_match
+Line_312_did_not_match
+Line_313_did_not_match
+Line_314_did_not_match
+Line_315_did_not_match
+Line_316_did_not_match
+Line_317_did_not_match
+Line_318_did_not_match
+Line_319_did_not_match
+Line_320_did_not_match
+Line_321_did_not_match
+Line_322_did_not_match
+Line_323_did_not_match
+Line_324_did_not_match
+Line_325_did_not_match
+Line_326_did_not_match
+Line_327_did_not_match
+Line_328_did_not_match
+Line_329_did_not_match
+Line_330_did_not_match
+Line_331_did_not_match
+Line_332_did_not_match
+Line_333_did_not_match
+Line_334_did_not_match
+Line_335_did_not_match
+Line_336_did_not_match
+Line_337_did_not_match
+Line_338_did_not_match
+Line_339_did_not_match
+Line_340_did_not_match
+Line_341_did_not_match
+Line_342_did_not_match
+Line_343_did_not_match
+Line_344_did_not_match
+Line_345_did_not_match
+Line_346_did_not_match
+Line_347_did_not_match
+Line_348_did_not_match
+Your file did not match the expected ouput
+Testcase failed 
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 ...compiling...
-In file included from tester.cpp:1:0:
-ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]’:
-tester.cpp:94:11:   required from here
-ll.h:42:13: error: ‘(LinkedList<Tester>*)this’ is not of type ‘LinkedList<Tester>’
-       this.~LinkedList();
-       ~~~~~~^~~~~~~~~~
-ll.h:44:12: error: lvalue required as left operand of assignment
-       this = temp;
-       ~~~~~^~~~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_189_did_not_match
+Line_190_did_not_match
+Line_191_did_not_match
+Line_192_did_not_match
+Line_193_did_not_match
+Line_194_did_not_match
+Line_195_did_not_match
+Line_196_did_not_match
+Line_197_did_not_match
+Line_198_did_not_match
+Line_199_did_not_match
+Line_200_did_not_match
+Line_201_did_not_match
+Line_202_did_not_match
+Line_203_did_not_match
+Line_204_did_not_match
+Line_205_did_not_match
+Line_206_did_not_match
+Line_207_did_not_match
+Line_208_did_not_match
+Line_209_did_not_match
+Line_210_did_not_match
+Line_211_did_not_match
+Line_212_did_not_match
+Line_213_did_not_match
+Line_214_did_not_match
+Line_215_did_not_match
+Line_216_did_not_match
+Line_217_did_not_match
+Line_218_did_not_match
+Line_219_did_not_match
+Line_220_did_not_match
+Line_221_did_not_match
+Line_222_did_not_match
+Line_223_did_not_match
+Line_224_did_not_match
+Line_225_did_not_match
+Line_226_did_not_match
+Line_227_did_not_match
+Line_228_did_not_match
+Line_229_did_not_match
+Line_230_did_not_match
+Line_231_did_not_match
+Line_232_did_not_match
+Line_233_did_not_match
+Line_234_did_not_match
+Line_235_did_not_match
+Line_236_did_not_match
+Line_237_did_not_match
+Line_238_did_not_match
+Line_239_did_not_match
+Line_298_did_not_match
+Line_299_did_not_match
+Line_300_did_not_match
+Line_301_did_not_match
+Line_302_did_not_match
+Line_303_did_not_match
+Line_304_did_not_match
+Line_305_did_not_match
+Line_306_did_not_match
+Line_307_did_not_match
+Line_308_did_not_match
+Line_309_did_not_match
+Line_310_did_not_match
+Line_311_did_not_match
+Line_312_did_not_match
+Line_313_did_not_match
+Line_314_did_not_match
+Line_315_did_not_match
+Line_316_did_not_match
+Line_317_did_not_match
+Line_318_did_not_match
+Line_319_did_not_match
+Line_320_did_not_match
+Line_321_did_not_match
+Line_322_did_not_match
+Line_323_did_not_match
+Line_324_did_not_match
+Line_325_did_not_match
+Line_326_did_not_match
+Line_327_did_not_match
+Line_328_did_not_match
+Line_329_did_not_match
+Line_330_did_not_match
+Line_331_did_not_match
+Line_332_did_not_match
+Line_333_did_not_match
+Line_334_did_not_match
+Line_335_did_not_match
+Line_336_did_not_match
+Line_337_did_not_match
+Line_338_did_not_match
+Line_339_did_not_match
+Line_340_did_not_match
+Line_341_did_not_match
+Line_342_did_not_match
+Line_343_did_not_match
+Line_344_did_not_match
+Line_345_did_not_match
+Line_346_did_not_match
+Line_347_did_not_match
+Line_348_did_not_match
+Your file did not match the expected ouput
+Testcase failed 
 
 Overall Grade: F
