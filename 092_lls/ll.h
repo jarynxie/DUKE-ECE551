@@ -35,13 +35,13 @@ class LinkedList {
   }
   LinkedList & operator=(const LinkedList & rhs) {
     if (this != &rhs) {
-      LinkedList<T> temp = new LinkedList<T>();
+      LinkedList<T> * temp = new LinkedList<T>();
       for (int i = 0; i < rhs.getSize(); i++) {
-        temp.addBack(rhs[i]);
+        *temp->addBack(rhs[i]);
       }
-      this.~LinkedList();
-      temp.~LinkedList();
-      this = temp;
+      *this.~LinkedList();
+      *temp.~LinkedList();
+      *this = temp;
     }
     return *this;
   }
