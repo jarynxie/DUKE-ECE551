@@ -1,21 +1,18 @@
-Grading at 10/31/2019:17:33:02.712241
-For commit ID 0184314a6bbdb25c2a0e5d2684cbe5b5126dc2bb
-Grading at Thu Oct 31 13:33:02 EDT 2019
+Grading at 10/31/2019:18:52:58.065221
+For commit ID f301ebdd48fc0223db30a1beaa9908395384263b
+Grading at Thu Oct 31 14:52:57 EDT 2019
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
 In file included from tester.cpp:1:0:
 ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]’:
 tester.cpp:94:11:   required from here
-ll.h:38:21: error: conversion from ‘LinkedList<int>*’ to non-scalar type ‘LinkedList<int>’ requested
-       LinkedList<T> temp = new LinkedList<T>();
-                     ^~~~
-ll.h:40:10: error: base operand of ‘->’ has non-pointer type ‘LinkedList<int>’
-         *temp->addBack(rhs[i]);
-          ^~~~
-ll.h:42:14: error: ‘(LinkedList<int>*)this’ is not of type ‘LinkedList<int>’
-       *this.~LinkedList();
-        ~~~~~~^~~~~~~~~~
+ll.h:42:13: error: ‘(LinkedList<int>*)this’ is not of type ‘LinkedList<int>’
+       this.~LinkedList();
+       ~~~~~~^~~~~~~~~~
+ll.h:44:12: error: lvalue required as left operand of assignment
+       this = temp;
+       ~~~~~^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
@@ -23,15 +20,12 @@ testcase 2 : Testing with LinkedList<std::string>
 In file included from tester.cpp:1:0:
 ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
 tester.cpp:94:11:   required from here
-ll.h:38:21: error: conversion from ‘LinkedList<std::__cxx11::basic_string<char> >*’ to non-scalar type ‘LinkedList<std::__cxx11::basic_string<char> >’ requested
-       LinkedList<T> temp = new LinkedList<T>();
-                     ^~~~
-ll.h:40:10: error: base operand of ‘->’ has non-pointer type ‘LinkedList<std::__cxx11::basic_string<char> >’
-         *temp->addBack(rhs[i]);
-          ^~~~
-ll.h:42:14: error: ‘(LinkedList<std::__cxx11::basic_string<char> >*)this’ is not of type ‘LinkedList<std::__cxx11::basic_string<char> >’
-       *this.~LinkedList();
-        ~~~~~~^~~~~~~~~~
+ll.h:42:13: error: ‘(LinkedList<std::__cxx11::basic_string<char> >*)this’ is not of type ‘LinkedList<std::__cxx11::basic_string<char> >’
+       this.~LinkedList();
+       ~~~~~~^~~~~~~~~~
+ll.h:44:12: error: lvalue required as left operand of assignment
+       this = temp;
+       ~~~~~^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
@@ -39,15 +33,12 @@ testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 In file included from tester.cpp:1:0:
 ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]’:
 tester.cpp:94:11:   required from here
-ll.h:38:21: error: conversion from ‘LinkedList<Tester>*’ to non-scalar type ‘LinkedList<Tester>’ requested
-       LinkedList<T> temp = new LinkedList<T>();
-                     ^~~~
-ll.h:40:10: error: base operand of ‘->’ has non-pointer type ‘LinkedList<Tester>’
-         *temp->addBack(rhs[i]);
-          ^~~~
-ll.h:42:14: error: ‘(LinkedList<Tester>*)this’ is not of type ‘LinkedList<Tester>’
-       *this.~LinkedList();
-        ~~~~~~^~~~~~~~~~
+ll.h:42:13: error: ‘(LinkedList<Tester>*)this’ is not of type ‘LinkedList<Tester>’
+       this.~LinkedList();
+       ~~~~~~^~~~~~~~~~
+ll.h:44:12: error: lvalue required as left operand of assignment
+       this = temp;
+       ~~~~~^~~~~~
 The code did not compile.  This test failed.
 
 Overall Grade: F
