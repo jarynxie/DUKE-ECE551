@@ -1,0 +1,37 @@
+#include <assert.h>
+
+#include <cstdio>
+#include <cstdlib>
+
+#include "il.h"
+void testList(void) {
+  IntList list = IntList();
+  assert(list.size == 0);
+  assert(list.head == NULL);
+  list.addFront(11);
+  list.addFront(10);
+  assert(list[0] == 10);
+  assert(list[1] == 11);
+  assert(list.head->data == 10);
+  assert(list.tail->data == 11);
+  assert(list.head->prev == NULL);
+  assert(list.tail->next == NULL);
+  assert(list.getSize() == 2);
+  IntList list2 = IntList(list);
+  //assert(list2[0] == 10);
+  //assert(list2[1] == 11);
+  //assert(list2.head->data == 10);
+  //assert(list2.tail->data == 11);
+  //assert(list2.head->prev == NULL);
+  //assert(list2.tail->next == NULL);
+  //assert(list2.getSize() == 2);
+  IntList list3 = IntList();
+  list3 = list2;
+  assert(list3[0] == 10);
+}
+
+int main(void) {
+  //IntList list;
+  testList();
+  return EXIT_SUCCESS;
+}
