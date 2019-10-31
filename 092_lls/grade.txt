@@ -1,27 +1,21 @@
-Grading at 10/31/2019:17:29:12.060092
-For commit ID 86d9e7b65386f8238d66d7b20d4b44d66ae6ef81
-Grading at Thu Oct 31 13:29:11 EDT 2019
+Grading at 10/31/2019:17:33:02.712241
+For commit ID 0184314a6bbdb25c2a0e5d2684cbe5b5126dc2bb
+Grading at Thu Oct 31 13:33:02 EDT 2019
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
 In file included from tester.cpp:1:0:
 ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]’:
 tester.cpp:94:11:   required from here
-ll.h:40:9: error: void value not ignored as it ought to be
+ll.h:38:21: error: conversion from ‘LinkedList<int>*’ to non-scalar type ‘LinkedList<int>’ requested
+       LinkedList<T> temp = new LinkedList<T>();
+                     ^~~~
+ll.h:40:10: error: base operand of ‘->’ has non-pointer type ‘LinkedList<int>’
          *temp->addBack(rhs[i]);
+          ^~~~
 ll.h:42:14: error: ‘(LinkedList<int>*)this’ is not of type ‘LinkedList<int>’
        *this.~LinkedList();
         ~~~~~~^~~~~~~~~~
-ll.h:43:14: error: ‘temp’ is not of type ‘LinkedList<int>’
-       *temp.~LinkedList();
-        ~~~~~~^~~~~~~~~~
-ll.h:44:13: error: no match for ‘operator=’ (operand types are ‘LinkedList<int>’ and ‘LinkedList<int>*’)
-       *this = temp;
-       ~~~~~~^~~~~~
-ll.h:36:16: note: candidate: LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]
-   LinkedList & operator=(const LinkedList & rhs) {
-                ^~~~~~~~
-ll.h:36:16: note:   no known conversion for argument 1 from ‘LinkedList<int>*’ to ‘const LinkedList<int>&’
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
@@ -29,21 +23,15 @@ testcase 2 : Testing with LinkedList<std::string>
 In file included from tester.cpp:1:0:
 ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
 tester.cpp:94:11:   required from here
-ll.h:40:9: error: void value not ignored as it ought to be
+ll.h:38:21: error: conversion from ‘LinkedList<std::__cxx11::basic_string<char> >*’ to non-scalar type ‘LinkedList<std::__cxx11::basic_string<char> >’ requested
+       LinkedList<T> temp = new LinkedList<T>();
+                     ^~~~
+ll.h:40:10: error: base operand of ‘->’ has non-pointer type ‘LinkedList<std::__cxx11::basic_string<char> >’
          *temp->addBack(rhs[i]);
+          ^~~~
 ll.h:42:14: error: ‘(LinkedList<std::__cxx11::basic_string<char> >*)this’ is not of type ‘LinkedList<std::__cxx11::basic_string<char> >’
        *this.~LinkedList();
         ~~~~~~^~~~~~~~~~
-ll.h:43:14: error: ‘temp’ is not of type ‘LinkedList<std::__cxx11::basic_string<char> >’
-       *temp.~LinkedList();
-        ~~~~~~^~~~~~~~~~
-ll.h:44:13: error: no match for ‘operator=’ (operand types are ‘LinkedList<std::__cxx11::basic_string<char> >’ and ‘LinkedList<std::__cxx11::basic_string<char> >*’)
-       *this = temp;
-       ~~~~~~^~~~~~
-ll.h:36:16: note: candidate: LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]
-   LinkedList & operator=(const LinkedList & rhs) {
-                ^~~~~~~~
-ll.h:36:16: note:   no known conversion for argument 1 from ‘LinkedList<std::__cxx11::basic_string<char> >*’ to ‘const LinkedList<std::__cxx11::basic_string<char> >&’
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
@@ -51,21 +39,15 @@ testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 In file included from tester.cpp:1:0:
 ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]’:
 tester.cpp:94:11:   required from here
-ll.h:40:9: error: void value not ignored as it ought to be
+ll.h:38:21: error: conversion from ‘LinkedList<Tester>*’ to non-scalar type ‘LinkedList<Tester>’ requested
+       LinkedList<T> temp = new LinkedList<T>();
+                     ^~~~
+ll.h:40:10: error: base operand of ‘->’ has non-pointer type ‘LinkedList<Tester>’
          *temp->addBack(rhs[i]);
+          ^~~~
 ll.h:42:14: error: ‘(LinkedList<Tester>*)this’ is not of type ‘LinkedList<Tester>’
        *this.~LinkedList();
         ~~~~~~^~~~~~~~~~
-ll.h:43:14: error: ‘temp’ is not of type ‘LinkedList<Tester>’
-       *temp.~LinkedList();
-        ~~~~~~^~~~~~~~~~
-ll.h:44:13: error: no match for ‘operator=’ (operand types are ‘LinkedList<Tester>’ and ‘LinkedList<Tester>*’)
-       *this = temp;
-       ~~~~~~^~~~~~
-ll.h:36:16: note: candidate: LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]
-   LinkedList & operator=(const LinkedList & rhs) {
-                ^~~~~~~~
-ll.h:36:16: note:   no known conversion for argument 1 from ‘LinkedList<Tester>*’ to ‘const LinkedList<Tester>&’
 The code did not compile.  This test failed.
 
 Overall Grade: F
