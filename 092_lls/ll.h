@@ -16,7 +16,7 @@ class LinkedList {
     Node * next;
     Node() : data(0), prev(NULL), next(NULL){};
     Node(T d) : data(d), prev(NULL), next(NULL){};
-    Node(T d, Node * p, Node * n) : data(d), prev(p), next(n) {}
+    Node(const T & d, Node * p, Node * n) : data(d), prev(p), next(n) {}
   };
   class notExist : std::exception {};
   Node * head;
@@ -73,10 +73,10 @@ class LinkedList {
   }
   bool remove(const T & item) {
     Node * curr = head;
-    if (head == tail && head == NULL) {
+    if (getSize() == 0) {
       return false;
     }
-    if (head == tail && head->data == item) {
+    if (getSize() == 1 && head->data == item) {
       delete head;
       head = NULL;
       tail = NULL;
