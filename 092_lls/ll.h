@@ -45,10 +45,10 @@ class LinkedList {
     if (this != &rhs) {
       LinkedList<T> temp;
       for (int i = 0; i < rhs.getSize(); i++) {
-        temp.addBack(rhs[i]);
+        temp->addBack(rhs[i]);
       }
-      ~LinkedList();
-      this = *temp;
+      this.~LinkedList<T>();
+      this = &temp;
     }
     return *this;
   }
