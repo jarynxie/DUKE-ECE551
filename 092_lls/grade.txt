@@ -1,53 +1,26 @@
-Grading at 11/01/2019:04:16:31.145007
-For commit ID a5ad7cb8009c202220fd6c8da56c98b224e6589e
-Grading at Fri Nov  1 00:16:30 EDT 2019
+Grading at 11/01/2019:04:21:54.449767
+For commit ID a6ba2f4bff18f66327e1d5879b4b65ab23b24aaa
+Grading at Fri Nov  1 00:21:51 EDT 2019
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
-In file included from tester.cpp:1:0:
-ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]’:
-tester.cpp:94:11:   required from here
-ll.h:48:9: error: base operand of ‘->’ has non-pointer type ‘LinkedList<int>’
-         temp->addBack(rhs[i]);
-         ^~~~
-ll.h:50:25: error: ‘(LinkedList<int>*)this’ is not of type ‘LinkedList<int>’
-       this.~LinkedList<T>();
-       ~~~~~~~~~~~~~~~~~~^
-ll.h:51:12: error: lvalue required as left operand of assignment
-       this = &temp;
-       ~~~~~^~~~~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
 ...compiling...
-In file included from tester.cpp:1:0:
-ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
-tester.cpp:94:11:   required from here
-ll.h:48:9: error: base operand of ‘->’ has non-pointer type ‘LinkedList<std::__cxx11::basic_string<char> >’
-         temp->addBack(rhs[i]);
-         ^~~~
-ll.h:50:25: error: ‘(LinkedList<std::__cxx11::basic_string<char> >*)this’ is not of type ‘LinkedList<std::__cxx11::basic_string<char> >’
-       this.~LinkedList<T>();
-       ~~~~~~~~~~~~~~~~~~^
-ll.h:51:12: error: lvalue required as left operand of assignment
-       this = &temp;
-       ~~~~~^~~~~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 ...compiling...
-In file included from tester.cpp:1:0:
-ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]’:
-tester.cpp:94:11:   required from here
-ll.h:48:9: error: base operand of ‘->’ has non-pointer type ‘LinkedList<Tester>’
-         temp->addBack(rhs[i]);
-         ^~~~
-ll.h:50:25: error: ‘(LinkedList<Tester>*)this’ is not of type ‘LinkedList<Tester>’
-       this.~LinkedList<T>();
-       ~~~~~~~~~~~~~~~~~~^
-ll.h:51:12: error: lvalue required as left operand of assignment
-       this = &temp;
-       ~~~~~^~~~~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 
-Overall Grade: F
+Overall Grade: A
