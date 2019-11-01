@@ -1,332 +1,61 @@
-Grading at 11/01/2019:03:50:18.320013
-For commit ID e31fff2f77f191b08ba3bab5ba9ca8c71ac6f06f
-Grading at Thu Oct 31 23:50:15 EDT 2019
+Grading at 11/01/2019:04:02:39.004792
+For commit ID 6e1920757080784e428322d5c9d7565bdaf301e7
+Grading at Fri Nov  1 00:02:38 EDT 2019
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
-The code compiled.
-  - Valgrind was clean (no errors, no memory leaks)
-Line_189_did_not_match
-Line_190_did_not_match
-Line_191_did_not_match
-Line_192_did_not_match
-Line_193_did_not_match
-Line_194_did_not_match
-Line_195_did_not_match
-Line_196_did_not_match
-Line_197_did_not_match
-Line_198_did_not_match
-Line_199_did_not_match
-Line_200_did_not_match
-Line_201_did_not_match
-Line_202_did_not_match
-Line_203_did_not_match
-Line_204_did_not_match
-Line_205_did_not_match
-Line_206_did_not_match
-Line_207_did_not_match
-Line_208_did_not_match
-Line_209_did_not_match
-Line_210_did_not_match
-Line_211_did_not_match
-Line_212_did_not_match
-Line_213_did_not_match
-Line_214_did_not_match
-Line_215_did_not_match
-Line_216_did_not_match
-Line_217_did_not_match
-Line_218_did_not_match
-Line_219_did_not_match
-Line_220_did_not_match
-Line_221_did_not_match
-Line_222_did_not_match
-Line_223_did_not_match
-Line_224_did_not_match
-Line_225_did_not_match
-Line_226_did_not_match
-Line_227_did_not_match
-Line_228_did_not_match
-Line_229_did_not_match
-Line_230_did_not_match
-Line_231_did_not_match
-Line_232_did_not_match
-Line_233_did_not_match
-Line_234_did_not_match
-Line_235_did_not_match
-Line_236_did_not_match
-Line_237_did_not_match
-Line_238_did_not_match
-Line_239_did_not_match
-Line_298_did_not_match
-Line_299_did_not_match
-Line_300_did_not_match
-Line_301_did_not_match
-Line_302_did_not_match
-Line_303_did_not_match
-Line_304_did_not_match
-Line_305_did_not_match
-Line_306_did_not_match
-Line_307_did_not_match
-Line_308_did_not_match
-Line_309_did_not_match
-Line_310_did_not_match
-Line_311_did_not_match
-Line_312_did_not_match
-Line_313_did_not_match
-Line_314_did_not_match
-Line_315_did_not_match
-Line_316_did_not_match
-Line_317_did_not_match
-Line_318_did_not_match
-Line_319_did_not_match
-Line_320_did_not_match
-Line_321_did_not_match
-Line_322_did_not_match
-Line_323_did_not_match
-Line_324_did_not_match
-Line_325_did_not_match
-Line_326_did_not_match
-Line_327_did_not_match
-Line_328_did_not_match
-Line_329_did_not_match
-Line_330_did_not_match
-Line_331_did_not_match
-Line_332_did_not_match
-Line_333_did_not_match
-Line_334_did_not_match
-Line_335_did_not_match
-Line_336_did_not_match
-Line_337_did_not_match
-Line_338_did_not_match
-Line_339_did_not_match
-Line_340_did_not_match
-Line_341_did_not_match
-Line_342_did_not_match
-Line_343_did_not_match
-Line_344_did_not_match
-Line_345_did_not_match
-Line_346_did_not_match
-Line_347_did_not_match
-Line_348_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+In file included from tester.cpp:1:0:
+ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]’:
+tester.cpp:94:11:   required from here
+ll.h:50:7: error: no match for ‘operator~’ (operand type is ‘LinkedList<int>’)
+       ~LinkedList();
+       ^~~~~~~~~~~~~
+ll.h:51:14: error: no match for ‘operator*’ (operand type is ‘LinkedList<int>’)
+       this = *temp;
+              ^~~~~
+The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
 ...compiling...
-The code compiled.
-  - Valgrind was clean (no errors, no memory leaks)
-Line_189_did_not_match
-Line_190_did_not_match
-Line_191_did_not_match
-Line_192_did_not_match
-Line_193_did_not_match
-Line_194_did_not_match
-Line_195_did_not_match
-Line_196_did_not_match
-Line_197_did_not_match
-Line_198_did_not_match
-Line_199_did_not_match
-Line_200_did_not_match
-Line_201_did_not_match
-Line_202_did_not_match
-Line_203_did_not_match
-Line_204_did_not_match
-Line_205_did_not_match
-Line_206_did_not_match
-Line_207_did_not_match
-Line_208_did_not_match
-Line_209_did_not_match
-Line_210_did_not_match
-Line_211_did_not_match
-Line_212_did_not_match
-Line_213_did_not_match
-Line_214_did_not_match
-Line_215_did_not_match
-Line_216_did_not_match
-Line_217_did_not_match
-Line_218_did_not_match
-Line_219_did_not_match
-Line_220_did_not_match
-Line_221_did_not_match
-Line_222_did_not_match
-Line_223_did_not_match
-Line_224_did_not_match
-Line_225_did_not_match
-Line_226_did_not_match
-Line_227_did_not_match
-Line_228_did_not_match
-Line_229_did_not_match
-Line_230_did_not_match
-Line_231_did_not_match
-Line_232_did_not_match
-Line_233_did_not_match
-Line_234_did_not_match
-Line_235_did_not_match
-Line_236_did_not_match
-Line_237_did_not_match
-Line_238_did_not_match
-Line_239_did_not_match
-Line_298_did_not_match
-Line_299_did_not_match
-Line_300_did_not_match
-Line_301_did_not_match
-Line_302_did_not_match
-Line_303_did_not_match
-Line_304_did_not_match
-Line_305_did_not_match
-Line_306_did_not_match
-Line_307_did_not_match
-Line_308_did_not_match
-Line_309_did_not_match
-Line_310_did_not_match
-Line_311_did_not_match
-Line_312_did_not_match
-Line_313_did_not_match
-Line_314_did_not_match
-Line_315_did_not_match
-Line_316_did_not_match
-Line_317_did_not_match
-Line_318_did_not_match
-Line_319_did_not_match
-Line_320_did_not_match
-Line_321_did_not_match
-Line_322_did_not_match
-Line_323_did_not_match
-Line_324_did_not_match
-Line_325_did_not_match
-Line_326_did_not_match
-Line_327_did_not_match
-Line_328_did_not_match
-Line_329_did_not_match
-Line_330_did_not_match
-Line_331_did_not_match
-Line_332_did_not_match
-Line_333_did_not_match
-Line_334_did_not_match
-Line_335_did_not_match
-Line_336_did_not_match
-Line_337_did_not_match
-Line_338_did_not_match
-Line_339_did_not_match
-Line_340_did_not_match
-Line_341_did_not_match
-Line_342_did_not_match
-Line_343_did_not_match
-Line_344_did_not_match
-Line_345_did_not_match
-Line_346_did_not_match
-Line_347_did_not_match
-Line_348_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+In file included from tester.cpp:1:0:
+ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
+tester.cpp:94:11:   required from here
+ll.h:50:7: error: no match for ‘operator~’ (operand type is ‘LinkedList<std::__cxx11::basic_string<char> >’)
+       ~LinkedList();
+       ^~~~~~~~~~~~~
+In file included from /usr/include/c++/7/ios:42:0,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from tester.cpp:3:
+/usr/include/c++/7/bits/ios_base.h:177:3: note: candidate: std::_Ios_Iostate std::operator~(std::_Ios_Iostate)
+   operator~(_Ios_Iostate __a)
+   ^~~~~~~~
+/usr/include/c++/7/bits/ios_base.h:177:3: note:   no known conversion for argument 1 from ‘LinkedList<std::__cxx11::basic_string<char> >’ to ‘std::_Ios_Iostate’
+/usr/include/c++/7/bits/ios_base.h:137:3: note: candidate: std::_Ios_Openmode std::operator~(std::_Ios_Openmode)
+   operator~(_Ios_Openmode __a)
+   ^~~~~~~~
+/usr/include/c++/7/bits/ios_base.h:137:3: note:   no known conversion for argument 1 from ‘LinkedList<std::__cxx11::basic_string<char> >’ to ‘std::_Ios_Openmode’
+/usr/include/c++/7/bits/ios_base.h:95:3: note: candidate: std::_Ios_Fmtflags std::operator~(std::_Ios_Fmtflags)
+   operator~(_Ios_Fmtflags __a)
+   ^~~~~~~~
+/usr/include/c++/7/bits/ios_base.h:95:3: note:   no known conversion for argument 1 from ‘LinkedList<std::__cxx11::basic_string<char> >’ to ‘std::_Ios_Fmtflags’
+In file included from tester.cpp:1:0:
+ll.h:51:14: error: no match for ‘operator*’ (operand type is ‘LinkedList<std::__cxx11::basic_string<char> >’)
+       this = *temp;
+              ^~~~~
+The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 ...compiling...
-The code compiled.
-  - Valgrind was clean (no errors, no memory leaks)
-Line_189_did_not_match
-Line_190_did_not_match
-Line_191_did_not_match
-Line_192_did_not_match
-Line_193_did_not_match
-Line_194_did_not_match
-Line_195_did_not_match
-Line_196_did_not_match
-Line_197_did_not_match
-Line_198_did_not_match
-Line_199_did_not_match
-Line_200_did_not_match
-Line_201_did_not_match
-Line_202_did_not_match
-Line_203_did_not_match
-Line_204_did_not_match
-Line_205_did_not_match
-Line_206_did_not_match
-Line_207_did_not_match
-Line_208_did_not_match
-Line_209_did_not_match
-Line_210_did_not_match
-Line_211_did_not_match
-Line_212_did_not_match
-Line_213_did_not_match
-Line_214_did_not_match
-Line_215_did_not_match
-Line_216_did_not_match
-Line_217_did_not_match
-Line_218_did_not_match
-Line_219_did_not_match
-Line_220_did_not_match
-Line_221_did_not_match
-Line_222_did_not_match
-Line_223_did_not_match
-Line_224_did_not_match
-Line_225_did_not_match
-Line_226_did_not_match
-Line_227_did_not_match
-Line_228_did_not_match
-Line_229_did_not_match
-Line_230_did_not_match
-Line_231_did_not_match
-Line_232_did_not_match
-Line_233_did_not_match
-Line_234_did_not_match
-Line_235_did_not_match
-Line_236_did_not_match
-Line_237_did_not_match
-Line_238_did_not_match
-Line_239_did_not_match
-Line_298_did_not_match
-Line_299_did_not_match
-Line_300_did_not_match
-Line_301_did_not_match
-Line_302_did_not_match
-Line_303_did_not_match
-Line_304_did_not_match
-Line_305_did_not_match
-Line_306_did_not_match
-Line_307_did_not_match
-Line_308_did_not_match
-Line_309_did_not_match
-Line_310_did_not_match
-Line_311_did_not_match
-Line_312_did_not_match
-Line_313_did_not_match
-Line_314_did_not_match
-Line_315_did_not_match
-Line_316_did_not_match
-Line_317_did_not_match
-Line_318_did_not_match
-Line_319_did_not_match
-Line_320_did_not_match
-Line_321_did_not_match
-Line_322_did_not_match
-Line_323_did_not_match
-Line_324_did_not_match
-Line_325_did_not_match
-Line_326_did_not_match
-Line_327_did_not_match
-Line_328_did_not_match
-Line_329_did_not_match
-Line_330_did_not_match
-Line_331_did_not_match
-Line_332_did_not_match
-Line_333_did_not_match
-Line_334_did_not_match
-Line_335_did_not_match
-Line_336_did_not_match
-Line_337_did_not_match
-Line_338_did_not_match
-Line_339_did_not_match
-Line_340_did_not_match
-Line_341_did_not_match
-Line_342_did_not_match
-Line_343_did_not_match
-Line_344_did_not_match
-Line_345_did_not_match
-Line_346_did_not_match
-Line_347_did_not_match
-Line_348_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+In file included from tester.cpp:1:0:
+ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]’:
+tester.cpp:94:11:   required from here
+ll.h:50:7: error: no match for ‘operator~’ (operand type is ‘LinkedList<Tester>’)
+       ~LinkedList();
+       ^~~~~~~~~~~~~
+ll.h:51:14: error: no match for ‘operator*’ (operand type is ‘LinkedList<Tester>’)
+       this = *temp;
+              ^~~~~
+The code did not compile.  This test failed.
 
 Overall Grade: F
