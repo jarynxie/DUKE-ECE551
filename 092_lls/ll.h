@@ -34,21 +34,17 @@ class LinkedList {
     }
   }
   LinkedList & operator=(const LinkedList & rhs) {
-    /*
+    while (head != NULL) {
+      Node * temp = head->next;
+      delete head;
+      head = temp;
+    }
+    size = 0;
+    tail = NULL;
     if (this != &rhs) {
       for (int i = 0; i < rhs.getSize(); i++) {
         addBack(rhs[i]);
       }
-    }
-    return *this;
-    */
-    if (this != &rhs) {
-      LinkedList<T> temp;
-      for (int i = 0; i < rhs.getSize(); i++) {
-        temp->addBack(rhs[i]);
-      }
-      this.~LinkedList<T>();
-      this = &temp;
     }
     return *this;
   }
