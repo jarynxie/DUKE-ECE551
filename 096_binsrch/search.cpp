@@ -5,25 +5,27 @@
 
 int searchHelper(Function<int, int> * f, int low, int high) {
   int curr = (low + high) / 2;
-  int ans;
   if (f->invoke(curr) == 0) {
-    ans = curr;
+    return curr;
   }
   if (f->invoke(curr) > 0) {
-    ans = searchHelper(f, low, curr - 1);
+    return searchHelper(f, low, curr);
   }
   if (f->invoke(curr) < 0) {
-    ans = searchHelper(f, curr + 1, high);
+    return searchHelper(f, curr + 1, high);
   }
-  return ans;
+  return low;
 }
 
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
+  if (low == high || high - low == 1 || low > high) {
+    return low;
+  }
   if (f->invoke(high) < 0) {
     return high - 1;
   }
   if (f->invoke(low) > 0) {
     return low;
   }
-  return searchHelper(f, low, high - 1);
+  return searchHelper(f, low, high);
 }
