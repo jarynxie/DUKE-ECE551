@@ -1,6 +1,6 @@
-Grading at 11/06/2019:02:17:26.760156
-For commit ID 79325374f6d1a0dc64185c01de23bc402d26a299
-Grading at Tue Nov  5 21:17:20 EST 2019
+Grading at 11/06/2019:02:26:46.945561
+For commit ID 8f72abae723e5f605bdde4550d462bf7d7324294
+Grading at Tue Nov  5 21:26:40 EST 2019
 Stripping out any main you may have written, and compiling...
 Testcase 1
 -----------------
@@ -9,8 +9,8 @@ Testcase 1
 Testcase 2
 -----------------
   - Valgrind was clean (no errors, no memory leaks)
-  - You got the correct result in 34 steps (correct is 15)
-  - Test Failed (use logarithmic search!)
+  - You got the correct result in 18 steps (correct is 15)
+  - Test Passed
 Testcase 3
 -----------------
   - Valgrind showed memory leaks
@@ -36,4 +36,4 @@ Testcase 7
   - You got the correct result in 1 steps (correct is 4)
   - Test Passed
 
-Overall Grade: F
+Overall Grade: C
