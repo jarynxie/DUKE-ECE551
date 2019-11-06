@@ -4,7 +4,7 @@
 #include "function.h"
 
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
-  if (low == high || high - low == 1 || low > high) {
+  if (low == high || high - low == 1) {
     return low;
   }
   int middle = (low + high) / 2;
