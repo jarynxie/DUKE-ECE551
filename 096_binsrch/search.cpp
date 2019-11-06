@@ -7,9 +7,9 @@ int binarySearchForZero(Function<int, int> * f, int low, int high) {
   if (low == high || high - low == 1) {
     return low;
   }
-  int middle = (low + high) / 2;
+  int middle = low + (high - low) / 2;
   int fx = f->invoke(middle);
-  if (fx < 0) {
+  if (fx <= 0) {
     return binarySearchForZero(f, middle, high);
   }
   else {
