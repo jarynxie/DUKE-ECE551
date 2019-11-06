@@ -58,8 +58,8 @@ void check(Function<int, int> * f,
 }
 
 int main(void) {
-  SinFunction * sin = new SinFunction;
-  anotherFunction * fun = new anotherFunction;
+  SinFunction * sin = new SinFunction();
+  anotherFunction * fun = new anotherFunction();
   check(sin, 0, 150000, 52359, "case 1");
   check(fun, -5, 5, 0, "case 2");
   check(fun, -5, -2, -3, "case 3");
