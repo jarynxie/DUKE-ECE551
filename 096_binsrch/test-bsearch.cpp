@@ -54,6 +54,7 @@ void check(Function<int, int> * f,
   CountedIntFn * x = new CountedIntFn(maxTime, f, mesg);
   int ans = binarySearchForZero(x, low, high);
   assert(ans == expected_ans);
+  delete x;
 }
 
 int main(void) {
