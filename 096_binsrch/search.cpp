@@ -5,13 +5,14 @@
 
 int searchHelper(Function<int, int> * f, int low, int high) {
   int curr = (low + high) / 2;
-  if (f->invoke(curr) == 0) {
+  int fx = f->invoke(curr);
+  if (fx == 0) {
     return curr;
   }
-  if (f->invoke(curr) >= 0) {
+  if (fx > 0) {
     return searchHelper(f, low, curr);
   }
-  if (f->invoke(curr) <= 0) {
+  if (fx < 0) {
     return searchHelper(f, curr + 1, high);
   }
   return low;
