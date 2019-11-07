@@ -1,7 +1,7 @@
+#include <algorithm>
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
-#include <stdexcept>
 
 #include "map.h"
 template<typename K, typename V>
@@ -26,7 +26,20 @@ class BstMap : public Map<K, V> {
 
  public:
   BstMap() : root(NULL) {}
-  BstMap(const BstMap & rhs) { rhs.root = NULL; }
+  Node * copyHelper(const Node * node) {
+    if (node == NULL) {
+      return NULL;
+    }
+    Node * newNode = new Node(node->key, node->value);
+    if (node->left != NULL) {
+      newNode->left = copyHelper(node->left);
+    }
+    if (node->right != NULL) {
+      newNode->right = copyHelper(node->right);
+    }
+    return newNode;
+  }
+  BstMap(const BstMap & rhs) { root = copyHelper(rhs.root); }
   BstMap & operator=(const BstMap & rhs) {
     if (this != &rhs) {
       BstMap temp(rhs);

@@ -21,13 +21,13 @@ int main(void) {
   map.remove(2);
   map.remove(16);
   map.remove(-1);
-  //BstMap<int, int> map2(map);
-  //BstMap<int, int> map3 = map;
+  BstMap<int, int> map2(map);
+  BstMap<int, int> map3 = map;
   map.printInOrder();
-  //std::cout << std::endl;
-  //map2.printInOrder();
-  //std::cout << std::endl;
-  //map3.printInOrder();
-  //std::cout << std::endl;
+  std::cout << std::endl;
+  map2.printInOrder();
+  std::cout << std::endl;
+  map3.printInOrder();
+  std::cout << std::endl;
   return EXIT_SUCCESS;
 }
