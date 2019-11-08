@@ -44,7 +44,7 @@ class BstMap : public Map<K, V> {
     if (this != &rhs) {
       BstMap temp(rhs);
       std::swap(root, temp.root);
-      destroy(temp.root);
+      //destroy(temp.root);
       /*
       BstMap<K, V> * tempMap = new BstMap();
       tempMap->root = copyHelper(rhs.root);
