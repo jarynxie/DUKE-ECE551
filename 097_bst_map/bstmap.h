@@ -129,10 +129,17 @@ class BstMap : public Map<K, V> {
         while ((*curr)->left != NULL) {
           curr = &(*curr)->left;
         }
+        /*
         (*nodeToChange).key = (*curr)->key;
         (*nodeToChange).value = (*curr)->value;
         delete *curr;
         *curr = NULL;
+	*/
+        K tempkey = (*curr)->key;
+        V tempvalue = (*curr)->value;
+        remove((*curr)->key);
+        (*nodeToChange).key = tempkey;
+        (*nodeToChange).value = tempvalue;
       }
     }
   }
