@@ -25,7 +25,7 @@ class BstSet : public Set<K> {
     if (node == NULL) {
       return NULL;
     }
-    Node * newNode = new Node(node->key, node->value);
+    Node * newNode = new Node(node->key);
     if (node->left != NULL) {
       newNode->left = copyHelper(node->left);
     }
