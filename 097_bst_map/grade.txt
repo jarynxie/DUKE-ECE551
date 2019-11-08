@@ -1,350 +1,350 @@
-Grading at 11/08/2019:17:19:13.447001
-For commit ID 18c041e14e0e104f5025b6a043e60d99b4ae4112
-Grading at Fri Nov  8 12:19:03 EST 2019
+Grading at 11/08/2019:17:41:57.055302
+For commit ID 0c16bd3c3b415b0309f88ce037c0579f0842f0c3
+Grading at Fri Nov  8 12:41:47 EST 2019
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==123818== Memcheck, a memory error detector
-==123818== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==123818== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==123818== Command: ./test.1
-==123818== Parent PID: 123817
-==123818== 
-==123818== 
-==123818== HEAP SUMMARY:
-==123818==     in use at exit: 120 bytes in 5 blocks
-==123818==   total heap usage: 353 allocs, 348 frees, 104,235 bytes allocated
-==123818== 
-==123818== 120 (24 direct, 96 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
-==123818==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123818==    by 0x10AAC2: BstMap<int, int>::add(int const&, int const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.1)
-==123818==    by 0x10972E: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.1)
-==123818== 
-==123818== LEAK SUMMARY:
-==123818==    definitely lost: 24 bytes in 1 blocks
-==123818==    indirectly lost: 96 bytes in 4 blocks
-==123818==      possibly lost: 0 bytes in 0 blocks
-==123818==    still reachable: 0 bytes in 0 blocks
-==123818==         suppressed: 0 bytes in 0 blocks
-==123818== 
-==123818== For counts of detected and suppressed errors, rerun with: -v
-==123818== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==11620== Memcheck, a memory error detector
+==11620== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11620== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11620== Command: ./test.1
+==11620== Parent PID: 11619
+==11620== 
+==11620== 
+==11620== HEAP SUMMARY:
+==11620==     in use at exit: 120 bytes in 5 blocks
+==11620==   total heap usage: 353 allocs, 348 frees, 104,235 bytes allocated
+==11620== 
+==11620== 120 (24 direct, 96 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==11620==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11620==    by 0x10AA6C: BstMap<int, int>::add(int const&, int const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.1)
+==11620==    by 0x10972E: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.1)
+==11620== 
+==11620== LEAK SUMMARY:
+==11620==    definitely lost: 24 bytes in 1 blocks
+==11620==    indirectly lost: 96 bytes in 4 blocks
+==11620==      possibly lost: 0 bytes in 0 blocks
+==11620==    still reachable: 0 bytes in 0 blocks
+==11620==         suppressed: 0 bytes in 0 blocks
+==11620== 
+==11620== For counts of detected and suppressed errors, rerun with: -v
+==11620== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==123851== Memcheck, a memory error detector
-==123851== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==123851== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==123851== Command: ./test.2
-==123851== Parent PID: 123850
-==123851== 
-==123851== 
-==123851== HEAP SUMMARY:
-==123851==     in use at exit: 375 bytes in 10 blocks
-==123851==   total heap usage: 476 allocs, 466 frees, 108,920 bytes allocated
-==123851== 
-==123851== 375 (56 direct, 319 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==123851==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123851==    by 0x10AD9A: BstMap<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(int const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.2)
-==123851==    by 0x1097AA: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.2)
-==123851== 
-==123851== LEAK SUMMARY:
-==123851==    definitely lost: 56 bytes in 1 blocks
-==123851==    indirectly lost: 319 bytes in 9 blocks
-==123851==      possibly lost: 0 bytes in 0 blocks
-==123851==    still reachable: 0 bytes in 0 blocks
-==123851==         suppressed: 0 bytes in 0 blocks
-==123851== 
-==123851== For counts of detected and suppressed errors, rerun with: -v
-==123851== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==11629== Memcheck, a memory error detector
+==11629== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11629== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11629== Command: ./test.2
+==11629== Parent PID: 11628
+==11629== 
+==11629== 
+==11629== HEAP SUMMARY:
+==11629==     in use at exit: 375 bytes in 10 blocks
+==11629==   total heap usage: 476 allocs, 466 frees, 108,920 bytes allocated
+==11629== 
+==11629== 375 (56 direct, 319 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==11629==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11629==    by 0x10AD44: BstMap<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(int const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.2)
+==11629==    by 0x1097AA: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.2)
+==11629== 
+==11629== LEAK SUMMARY:
+==11629==    definitely lost: 56 bytes in 1 blocks
+==11629==    indirectly lost: 319 bytes in 9 blocks
+==11629==      possibly lost: 0 bytes in 0 blocks
+==11629==    still reachable: 0 bytes in 0 blocks
+==11629==         suppressed: 0 bytes in 0 blocks
+==11629== 
+==11629== For counts of detected and suppressed errors, rerun with: -v
+==11629== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==123885== Memcheck, a memory error detector
-==123885== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==123885== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==123885== Command: ./test.3
-==123885== Parent PID: 123884
-==123885== 
-==123885== 
-==123885== HEAP SUMMARY:
-==123885==     in use at exit: 415 bytes in 10 blocks
-==123885==   total heap usage: 502 allocs, 492 frees, 110,004 bytes allocated
-==123885== 
-==123885== 415 (64 direct, 351 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==123885==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123885==    by 0x10AE32: BstMap<int, Tester>::add(int const&, Tester const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.3)
-==123885==    by 0x1097AA: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.3)
-==123885== 
-==123885== LEAK SUMMARY:
-==123885==    definitely lost: 64 bytes in 1 blocks
-==123885==    indirectly lost: 351 bytes in 9 blocks
-==123885==      possibly lost: 0 bytes in 0 blocks
-==123885==    still reachable: 0 bytes in 0 blocks
-==123885==         suppressed: 0 bytes in 0 blocks
-==123885== 
-==123885== For counts of detected and suppressed errors, rerun with: -v
-==123885== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==11642== Memcheck, a memory error detector
+==11642== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11642== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11642== Command: ./test.3
+==11642== Parent PID: 11641
+==11642== 
+==11642== 
+==11642== HEAP SUMMARY:
+==11642==     in use at exit: 415 bytes in 10 blocks
+==11642==   total heap usage: 502 allocs, 492 frees, 110,004 bytes allocated
+==11642== 
+==11642== 415 (64 direct, 351 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==11642==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11642==    by 0x10ADDC: BstMap<int, Tester>::add(int const&, Tester const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.3)
+==11642==    by 0x1097AA: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.3)
+==11642== 
+==11642== LEAK SUMMARY:
+==11642==    definitely lost: 64 bytes in 1 blocks
+==11642==    indirectly lost: 351 bytes in 9 blocks
+==11642==      possibly lost: 0 bytes in 0 blocks
+==11642==    still reachable: 0 bytes in 0 blocks
+==11642==         suppressed: 0 bytes in 0 blocks
+==11642== 
+==11642== For counts of detected and suppressed errors, rerun with: -v
+==11642== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==123913== Memcheck, a memory error detector
-==123913== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==123913== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==123913== Command: ./test.4
-==123913== Parent PID: 123912
-==123913== 
-==123913== 
-==123913== HEAP SUMMARY:
-==123913==     in use at exit: 224 bytes in 4 blocks
-==123913==   total heap usage: 375 allocs, 371 frees, 107,031 bytes allocated
-==123913== 
-==123913== 56 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==123913==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123913==    by 0x10AC7D: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACEE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACBF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACEE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACBF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACBF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACBF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10A8F5: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x109AD1: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913== 
-==123913== 56 bytes in 1 blocks are definitely lost in loss record 2 of 3
-==123913==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123913==    by 0x10AC7D: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACEE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACBF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACEE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10ACBF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10A8F5: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x109AD1: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913== 
-==123913== 112 bytes in 2 blocks are definitely lost in loss record 3 of 3
-==123913==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123913==    by 0x10AF40: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913==    by 0x10997A: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.4)
-==123913== 
-==123913== LEAK SUMMARY:
-==123913==    definitely lost: 224 bytes in 4 blocks
-==123913==    indirectly lost: 0 bytes in 0 blocks
-==123913==      possibly lost: 0 bytes in 0 blocks
-==123913==    still reachable: 0 bytes in 0 blocks
-==123913==         suppressed: 0 bytes in 0 blocks
-==123913== 
-==123913== For counts of detected and suppressed errors, rerun with: -v
-==123913== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==11652== Memcheck, a memory error detector
+==11652== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11652== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11652== Command: ./test.4
+==11652== Parent PID: 11651
+==11652== 
+==11652== 
+==11652== HEAP SUMMARY:
+==11652==     in use at exit: 224 bytes in 4 blocks
+==11652==   total heap usage: 375 allocs, 371 frees, 107,031 bytes allocated
+==11652== 
+==11652== 56 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==11652==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11652==    by 0x10AC59: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10ACCA: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10AC9B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10ACCA: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10AC9B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10AC9B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10AC9B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10A8F5: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x109AD1: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652== 
+==11652== 56 bytes in 1 blocks are definitely lost in loss record 2 of 3
+==11652==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11652==    by 0x10AC59: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10ACCA: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10AC9B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10ACCA: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10AC9B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10A8F5: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x109AD1: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652== 
+==11652== 112 bytes in 2 blocks are definitely lost in loss record 3 of 3
+==11652==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11652==    by 0x10AEEA: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652==    by 0x10997A: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.4)
+==11652== 
+==11652== LEAK SUMMARY:
+==11652==    definitely lost: 224 bytes in 4 blocks
+==11652==    indirectly lost: 0 bytes in 0 blocks
+==11652==      possibly lost: 0 bytes in 0 blocks
+==11652==    still reachable: 0 bytes in 0 blocks
+==11652==         suppressed: 0 bytes in 0 blocks
+==11652== 
+==11652== For counts of detected and suppressed errors, rerun with: -v
+==11652== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==123956== Memcheck, a memory error detector
-==123956== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==123956== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==123956== Command: ./test.5
-==123956== Parent PID: 123955
-==123956== 
-==123956== 
-==123956== HEAP SUMMARY:
-==123956==     in use at exit: 404 bytes in 8 blocks
-==123956==   total heap usage: 501 allocs, 493 frees, 111,293 bytes allocated
-==123956== 
-==123956== 101 (80 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 6
-==123956==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123956==    by 0x10AE0D: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE7E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE4F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE7E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE4F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE4F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE4F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AA85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956== 
-==123956== 101 (80 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 6
-==123956==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123956==    by 0x10AE0D: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE7E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE4F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE7E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AE4F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x10AA85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956== 
-==123956== 202 (160 direct, 42 indirect) bytes in 2 blocks are definitely lost in loss record 6 of 6
-==123956==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123956==    by 0x10B134: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956==    by 0x109976: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.5)
-==123956== 
-==123956== LEAK SUMMARY:
-==123956==    definitely lost: 320 bytes in 4 blocks
-==123956==    indirectly lost: 84 bytes in 4 blocks
-==123956==      possibly lost: 0 bytes in 0 blocks
-==123956==    still reachable: 0 bytes in 0 blocks
-==123956==         suppressed: 0 bytes in 0 blocks
-==123956== 
-==123956== For counts of detected and suppressed errors, rerun with: -v
-==123956== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==11671== Memcheck, a memory error detector
+==11671== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11671== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11671== Command: ./test.5
+==11671== Parent PID: 11670
+==11671== 
+==11671== 
+==11671== HEAP SUMMARY:
+==11671==     in use at exit: 404 bytes in 8 blocks
+==11671==   total heap usage: 501 allocs, 493 frees, 111,293 bytes allocated
+==11671== 
+==11671== 101 (80 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 6
+==11671==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11671==    by 0x10ADE9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE5A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE2B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE5A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE2B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE2B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE2B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AA85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671== 
+==11671== 101 (80 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 6
+==11671==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11671==    by 0x10ADE9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE5A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE2B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE5A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AE2B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x10AA85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671== 
+==11671== 202 (160 direct, 42 indirect) bytes in 2 blocks are definitely lost in loss record 6 of 6
+==11671==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11671==    by 0x10B0DE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671==    by 0x109976: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.5)
+==11671== 
+==11671== LEAK SUMMARY:
+==11671==    definitely lost: 320 bytes in 4 blocks
+==11671==    indirectly lost: 84 bytes in 4 blocks
+==11671==      possibly lost: 0 bytes in 0 blocks
+==11671==    still reachable: 0 bytes in 0 blocks
+==11671==         suppressed: 0 bytes in 0 blocks
+==11671== 
+==11671== For counts of detected and suppressed errors, rerun with: -v
+==11671== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==123993== Memcheck, a memory error detector
-==123993== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==123993== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==123993== Command: ./test.6
-==123993== Parent PID: 123992
-==123993== 
-==123993== 
-==123993== HEAP SUMMARY:
-==123993==     in use at exit: 436 bytes in 8 blocks
-==123993==   total heap usage: 527 allocs, 519 frees, 112,377 bytes allocated
-==123993== 
-==123993== 109 (88 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 6
-==123993==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123993==    by 0x10AE67: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AED8: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AEA9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AED8: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AEA9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AEA9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AEA9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AADF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993== 
-==123993== 109 (88 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 6
-==123993==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123993==    by 0x10AE67: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AED8: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AEA9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AED8: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AEA9: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x10AADF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993== 
-==123993== 218 (176 direct, 42 indirect) bytes in 2 blocks are definitely lost in loss record 6 of 6
-==123993==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==123993==    by 0x10B1CC: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993==    by 0x109976: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.6)
-==123993== 
-==123993== LEAK SUMMARY:
-==123993==    definitely lost: 352 bytes in 4 blocks
-==123993==    indirectly lost: 84 bytes in 4 blocks
-==123993==      possibly lost: 0 bytes in 0 blocks
-==123993==    still reachable: 0 bytes in 0 blocks
-==123993==         suppressed: 0 bytes in 0 blocks
-==123993== 
-==123993== For counts of detected and suppressed errors, rerun with: -v
-==123993== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==11683== Memcheck, a memory error detector
+==11683== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11683== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11683== Command: ./test.6
+==11683== Parent PID: 11682
+==11683== 
+==11683== 
+==11683== HEAP SUMMARY:
+==11683==     in use at exit: 436 bytes in 8 blocks
+==11683==   total heap usage: 527 allocs, 519 frees, 112,377 bytes allocated
+==11683== 
+==11683== 109 (88 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 6
+==11683==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11683==    by 0x10AE43: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AEB4: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AE85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AEB4: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AE85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AE85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AE85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AADF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683== 
+==11683== 109 (88 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 6
+==11683==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11683==    by 0x10AE43: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AEB4: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AE85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AEB4: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AE85: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::copyHelper(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node const*) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x10AADF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::BstMap(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester> const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x109AEE: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683== 
+==11683== 218 (176 direct, 42 indirect) bytes in 2 blocks are definitely lost in loss record 6 of 6
+==11683==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11683==    by 0x10B176: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683==    by 0x109976: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.6)
+==11683== 
+==11683== LEAK SUMMARY:
+==11683==    definitely lost: 352 bytes in 4 blocks
+==11683==    indirectly lost: 84 bytes in 4 blocks
+==11683==      possibly lost: 0 bytes in 0 blocks
+==11683==    still reachable: 0 bytes in 0 blocks
+==11683==         suppressed: 0 bytes in 0 blocks
+==11683== 
+==11683== For counts of detected and suppressed errors, rerun with: -v
+==11683== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==124039== Memcheck, a memory error detector
-==124039== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==124039== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==124039== Command: ./test.7
-==124039== Parent PID: 124038
-==124039== 
-==124039== 
-==124039== HEAP SUMMARY:
-==124039==     in use at exit: 320 bytes in 5 blocks
-==124039==   total heap usage: 386 allocs, 381 frees, 107,460 bytes allocated
-==124039== 
-==124039== 320 (64 direct, 256 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
-==124039==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==124039==    by 0x10AF98: BstMap<Tester, int>::add(Tester const&, int const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.7)
-==124039==    by 0x1098EA: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.7)
-==124039== 
-==124039== LEAK SUMMARY:
-==124039==    definitely lost: 64 bytes in 1 blocks
-==124039==    indirectly lost: 256 bytes in 4 blocks
-==124039==      possibly lost: 0 bytes in 0 blocks
-==124039==    still reachable: 0 bytes in 0 blocks
-==124039==         suppressed: 0 bytes in 0 blocks
-==124039== 
-==124039== For counts of detected and suppressed errors, rerun with: -v
-==124039== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==11709== Memcheck, a memory error detector
+==11709== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11709== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11709== Command: ./test.7
+==11709== Parent PID: 11708
+==11709== 
+==11709== 
+==11709== HEAP SUMMARY:
+==11709==     in use at exit: 320 bytes in 5 blocks
+==11709==   total heap usage: 386 allocs, 381 frees, 107,460 bytes allocated
+==11709== 
+==11709== 320 (64 direct, 256 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==11709==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11709==    by 0x10AF42: BstMap<Tester, int>::add(Tester const&, int const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.7)
+==11709==    by 0x1098EA: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.7)
+==11709== 
+==11709== LEAK SUMMARY:
+==11709==    definitely lost: 64 bytes in 1 blocks
+==11709==    indirectly lost: 256 bytes in 4 blocks
+==11709==      possibly lost: 0 bytes in 0 blocks
+==11709==    still reachable: 0 bytes in 0 blocks
+==11709==         suppressed: 0 bytes in 0 blocks
+==11709== 
+==11709== For counts of detected and suppressed errors, rerun with: -v
+==11709== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==124083== Memcheck, a memory error detector
-==124083== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==124083== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==124083== Command: ./test.8
-==124083== Parent PID: 124082
-==124083== 
-==124083== 
-==124083== HEAP SUMMARY:
-==124083==     in use at exit: 535 bytes in 10 blocks
-==124083==   total heap usage: 509 allocs, 499 frees, 111,617 bytes allocated
-==124083== 
-==124083== 535 (88 direct, 447 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==124083==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==124083==    by 0x10B18C: BstMap<Tester, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(Tester const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.8)
-==124083==    by 0x1098E6: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.8)
-==124083== 
-==124083== LEAK SUMMARY:
-==124083==    definitely lost: 88 bytes in 1 blocks
-==124083==    indirectly lost: 447 bytes in 9 blocks
-==124083==      possibly lost: 0 bytes in 0 blocks
-==124083==    still reachable: 0 bytes in 0 blocks
-==124083==         suppressed: 0 bytes in 0 blocks
-==124083== 
-==124083== For counts of detected and suppressed errors, rerun with: -v
-==124083== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==11741== Memcheck, a memory error detector
+==11741== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11741== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11741== Command: ./test.8
+==11741== Parent PID: 11740
+==11741== 
+==11741== 
+==11741== HEAP SUMMARY:
+==11741==     in use at exit: 535 bytes in 10 blocks
+==11741==   total heap usage: 509 allocs, 499 frees, 111,617 bytes allocated
+==11741== 
+==11741== 535 (88 direct, 447 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==11741==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11741==    by 0x10B136: BstMap<Tester, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(Tester const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.8)
+==11741==    by 0x1098E6: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.8)
+==11741== 
+==11741== LEAK SUMMARY:
+==11741==    definitely lost: 88 bytes in 1 blocks
+==11741==    indirectly lost: 447 bytes in 9 blocks
+==11741==      possibly lost: 0 bytes in 0 blocks
+==11741==    still reachable: 0 bytes in 0 blocks
+==11741==         suppressed: 0 bytes in 0 blocks
+==11741== 
+==11741== For counts of detected and suppressed errors, rerun with: -v
+==11741== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==124116== Memcheck, a memory error detector
-==124116== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==124116== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==124116== Command: ./test.9
-==124116== Parent PID: 124115
-==124116== 
-==124116== 
-==124116== HEAP SUMMARY:
-==124116==     in use at exit: 575 bytes in 10 blocks
-==124116==   total heap usage: 535 allocs, 525 frees, 112,701 bytes allocated
-==124116== 
-==124116== 575 (96 direct, 479 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==124116==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==124116==    by 0x10B1DC: BstMap<Tester, Tester>::add(Tester const&, Tester const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.9)
-==124116==    by 0x1098F8: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.h88eYX/test.9)
-==124116== 
-==124116== LEAK SUMMARY:
-==124116==    definitely lost: 96 bytes in 1 blocks
-==124116==    indirectly lost: 479 bytes in 9 blocks
-==124116==      possibly lost: 0 bytes in 0 blocks
-==124116==    still reachable: 0 bytes in 0 blocks
-==124116==         suppressed: 0 bytes in 0 blocks
-==124116== 
-==124116== For counts of detected and suppressed errors, rerun with: -v
-==124116== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==11769== Memcheck, a memory error detector
+==11769== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==11769== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==11769== Command: ./test.9
+==11769== Parent PID: 11768
+==11769== 
+==11769== 
+==11769== HEAP SUMMARY:
+==11769==     in use at exit: 575 bytes in 10 blocks
+==11769==   total heap usage: 535 allocs, 525 frees, 112,701 bytes allocated
+==11769== 
+==11769== 575 (96 direct, 479 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==11769==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11769==    by 0x10B186: BstMap<Tester, Tester>::add(Tester const&, Tester const&) (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.9)
+==11769==    by 0x1098F8: main (in /home/ece551db/graderbase/work/jx95.097_bst_map.cdZaNd/test.9)
+==11769== 
+==11769== LEAK SUMMARY:
+==11769==    definitely lost: 96 bytes in 1 blocks
+==11769==    indirectly lost: 479 bytes in 9 blocks
+==11769==      possibly lost: 0 bytes in 0 blocks
+==11769==    still reachable: 0 bytes in 0 blocks
+==11769==         suppressed: 0 bytes in 0 blocks
+==11769== 
+==11769== For counts of detected and suppressed errors, rerun with: -v
+==11769== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 Overall Grade: F
