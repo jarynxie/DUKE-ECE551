@@ -23,8 +23,11 @@ int main(void) {
   map.remove(-1);
   map.remove(4);
   map.remove(9);
+  std::cout << "111\n";
   map.remove(1100);
-  map.lookup(1100);
+  std::cout << "111\n";
+  //map.lookup(1100);
+  std::cout << "111\n";
 
   map.add(17, 16);
   std::cout << map.lookup(17) << std::endl;

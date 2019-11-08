@@ -73,12 +73,12 @@ class BstMap : public Map<K, V> {
   }
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     Node * current = root;
-    bool isFound = false;
+    //bool isFound = false;
     while (current != NULL) {
       if (key == current->key) {
-        isFound = true;
-        break;
-        //return current->value;
+        //isFound = true;
+        //break;
+        return current->value;
       }
       else if (key < current->key) {
         current = current->left;
@@ -87,6 +87,7 @@ class BstMap : public Map<K, V> {
         current = current->right;
       }
     }
+    /*
     try {
       if (!isFound) {
         throw std::invalid_argument("Key not found!");
@@ -96,6 +97,8 @@ class BstMap : public Map<K, V> {
       std::cerr << e.what() << std::endl;
     }
     return current->value;
+    */
+    throw std::invalid_argument("Key not found!");
   }
   virtual void remove(const K & key) {
     Node ** curr = &root;
