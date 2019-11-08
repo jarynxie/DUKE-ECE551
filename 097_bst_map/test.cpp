@@ -21,6 +21,9 @@ int main(void) {
   map.remove(2);
   map.remove(16);
   map.remove(-1);
+  map.remove(4);
+  map.remove(9);
+  map.remove(1100);
   BstMap<int, int> map2(map);
   BstMap<int, int> map3 = map;
   map.printInOrder();

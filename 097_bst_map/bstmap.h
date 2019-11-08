@@ -88,7 +88,7 @@ class BstMap : public Map<K, V> {
   }
   virtual void remove(const K & key) {
     Node ** curr = &root;
-    while ((*curr)->key != key) {
+    while (*curr != NULL && key != (*curr)->key) {
       if (key < (*curr)->key) {
         curr = &(*curr)->left;
       }
@@ -96,24 +96,24 @@ class BstMap : public Map<K, V> {
         curr = &(*curr)->right;
       }
     }
-    if ((*curr)->left == NULL && (*curr)->right == NULL) {
+    if (*curr != NULL && (*curr)->left == NULL && (*curr)->right == NULL) {
       delete *curr;
       *curr = NULL;
     }
     else {
-      if ((*curr)->left != NULL && (*curr)->right == NULL) {
+      if (*curr != NULL && (*curr)->left != NULL && (*curr)->right == NULL) {
         Node * temp = *curr;
         *curr = (*curr)->left;
         delete temp;
         temp = NULL;
       }
-      else if ((*curr)->right != NULL && (*curr)->left == NULL) {
+      else if (*curr != NULL && (*curr)->right != NULL && (*curr)->left == NULL) {
         Node * temp = *curr;
         *curr = (*curr)->right;
         delete temp;
         temp = NULL;
       }
-      else if ((*curr)->right != NULL && (*curr)->left != NULL) {
+      else if (*curr != NULL && (*curr)->right != NULL && (*curr)->left != NULL) {
         Node * nodeToChange = *curr;
         curr = &(*curr)->right;
         while ((*curr)->left != NULL) {
