@@ -42,8 +42,10 @@ class BstMap : public Map<K, V> {
   BstMap(const BstMap & rhs) { root = copyHelper(rhs.root); }
   BstMap & operator=(const BstMap & rhs) {
     if (this != &rhs) {
-      BstMap temp(rhs);
-      std::swap(temp.root, root);
+      //BstMap temp(rhs);
+      //std::swap(temp.root, root);
+      destroy(root);
+      root = copyHelper(rhs.root);
     }
     return *this;
   }

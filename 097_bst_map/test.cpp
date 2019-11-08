@@ -24,6 +24,9 @@ int main(void) {
   map.remove(4);
   map.remove(9);
   map.remove(1100);
+  //map.lookup(1100);
+  map.add(17, 16);
+  std::cout << map.lookup(17) << std::endl;
   BstMap<int, int> map2(map);
   BstMap<int, int> map3 = map;
   map.printInOrder();
