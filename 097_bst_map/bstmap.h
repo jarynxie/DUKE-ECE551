@@ -42,37 +42,27 @@ class BstMap : public Map<K, V> {
   BstMap(const BstMap & rhs) { root = copyHelper(rhs.root); }
   BstMap & operator=(const BstMap & rhs) {
     if (this != &rhs) {
-      //BstMap temp(rhs);
-      //std::swap(temp.root, root);
-      destroy(root);
-      root = copyHelper(rhs.root);
+      BstMap temp(rhs);
+      std::swap(root, temp.root);
     }
     return *this;
   }
-  Node * addHelper(Node * current, const K & key, const V & value) {
-    if (current == NULL) {
-      Node * ans = new Node(key, value);
-      return ans;
-    }
-    else {
-      if (key == current->key) {
-        current->value = value;
+  virtual void add(const K & key, const V & value) {
+    Node ** curr = &root;
+    while (*curr != NULL) {
+      if (key < (*curr)->key) {
+        curr = &(*curr)->left;
+      }
+      else if (key > (*curr)->key) {
+        curr = &(*curr)->right;
       }
       else {
-        if (key < current->key) {
-          Node * newLeft = addHelper(current->left, key, value);
-          current->left = newLeft;
-        }
-        else {
-          Node * newRight = addHelper(current->right, key, value);
-          current->right = newRight;
-        }
+        (*curr)->value = value;
+        return;
       }
-      return current;
     }
+    *curr = new Node(key, value);
   }
-
-  virtual void add(const K & key, const V & value) { root = addHelper(root, key, value); }
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     Node * current = root;
     while (current != NULL) {
