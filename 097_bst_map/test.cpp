@@ -30,10 +30,7 @@ int main(void) {
   BstMap<int, int> map2(map);
   BstMap<int, int> map3 = map;
   map.printInOrder();
-  std::cout << std::endl;
   map2.printInOrder();
-  std::cout << std::endl;
   map3.printInOrder();
-  std::cout << std::endl;
   return EXIT_SUCCESS;
 }
