@@ -29,10 +29,10 @@ uint64_t * readFrequencies(const char * fname) {
     exit(EXIT_FAILURE);
   }
   uint64_t * ans = new uint64_t[257]();
-  char c;
   uint64_t toInt;
-  while ((c = curStream.get()) != EOF) {
-    toInt = c;
+  char c;
+  while (curStream.get(c)) {
+    toInt = (unsigned char)c;
     ans[toInt]++;
   }
   ans[256] = 1;
