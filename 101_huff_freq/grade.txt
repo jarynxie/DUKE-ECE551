@@ -1,6 +1,6 @@
-Grading at 11/12/2019:01:58:24.206840
-For commit ID 250df5ef20db8391fae82b5cec73326e4a7efdcc
-Grading at Mon Nov 11 20:58:19 EST 2019
+Grading at 11/12/2019:02:11:32.833117
+For commit ID 0227cfc89e22f284cfa2d6f87fa7cb29a2831612
+Grading at Mon Nov 11 21:11:28 EST 2019
 compiling
 g++ -ggdb3 -Wall -Werror -pedantic -o testFreq testFreq.cpp readFreq.cpp
 Make succeed, testFreq created
@@ -20,49 +20,8 @@ Testcase 3
 -----------------------
   - Valgrind was clean (no errors, no memory leaks)
 Checking output:
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Line_4_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_8_did_not_match
-Line_9_did_not_match
-Line_10_did_not_match
-Line_11_did_not_match
-Line_13_did_not_match
-Line_17_did_not_match
-Line_34_did_not_match
-Line_36_did_not_match
-Line_38_did_not_match
-Line_39_did_not_match
-Line_40_did_not_match
-Line_41_did_not_match
-Line_42_did_not_match
-Line_43_did_not_match
-Line_44_did_not_match
-Line_45_did_not_match
-Line_46_did_not_match
-Line_47_did_not_match
-Line_48_did_not_match
-Line_49_did_not_match
-Line_50_did_not_match
-Line_52_did_not_match
-Line_53_did_not_match
-Line_54_did_not_match
-Line_55_did_not_match
-Line_56_did_not_match
-Line_57_did_not_match
-Line_58_did_not_match
-Line_59_did_not_match
-Line_60_did_not_match
-Line_61_did_not_match
-Line_62_did_not_match
-Line_63_did_not_match
-Line_64_did_not_match
-Your file did not match the expected ouput
-**Testcase failed **
+Your file matched the expected output
+Testcase passed 
 Testcase 4
 -----------------------
   - Valgrind was clean (no errors, no memory leaks)
@@ -70,4 +29,4 @@ Checking output:
 Your file matched the expected output
 Testcase passed 
 
-Overall Grade: C
+Overall Grade: A
