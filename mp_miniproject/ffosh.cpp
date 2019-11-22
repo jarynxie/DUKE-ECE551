@@ -13,12 +13,14 @@ int main(int argc, char * argv[]) {
     cout << "Usage: ./ffosh\n";
     exit(EXIT_FAILURE);
   }
+  char * newenviron[] = {NULL, NULL};
+  newenviron[0] = getenv("PATH");
+  //cout << newenviron[0];
   while (true) {
     pid_t cPid, w;
     int wstatus;
     cout << "ffosh$ ";
     char * newargv[] = {NULL, NULL};
-    char * newenviron[] = {NULL};
     string readString;
     getline(cin, readString);
     char * readResult = new char[readString.length() + 1];
