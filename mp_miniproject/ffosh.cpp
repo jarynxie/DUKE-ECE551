@@ -19,12 +19,17 @@ int main(int argc, char * argv[]) {
     cout << "ffosh$ ";
     char * newargv[] = {NULL, NULL};
     char * newenviron[] = {NULL};
-    char readCin[256];
-    cin.getline(readCin, 256);
-    if (strcmp(readCin, "exit") == 0 || strcmp(readCin, "") == 0) {
+    string readString;
+    getline(cin, readString);
+    char * readResult = new char[readString.length() + 1];
+    strcpy(readResult, readString.c_str());
+    if (strcmp(readResult, "exit") == 0) {
       exit(EXIT_SUCCESS);
     }
-    newargv[0] = readCin;
+    if (strcmp(readResult, "") == 0) {
+      continue;
+    }
+    newargv[0] = readResult;
     cPid = fork();
     if (cPid == -1) {
       perror("fork");
@@ -37,23 +42,20 @@ int main(int argc, char * argv[]) {
     }
     else {
       do {
-        w = wait(&wstatus);
+        w = waitpid(-1, &wstatus, 0);
         if (w == -1) {
           perror("wait");
           exit(EXIT_FAILURE);
         }
 
-        if (WIFEXITED(wstatus)) {
-          printf("exited, status=%d\n", WEXITSTATUS(wstatus));
+        if (WEXITSTATUS(wstatus) == 0) {
+          printf("Program was successful\n");
+        }
+        else if (WEXITSTATUS(wstatus) != 0) {
+          printf("Program failed with code %d\n", WEXITSTATUS(wstatus));
         }
         else if (WIFSIGNALED(wstatus)) {
-          printf("killed by signal %d\n", WTERMSIG(wstatus));
-        }
-        else if (WIFSTOPPED(wstatus)) {
-          printf("stopped by signal %d\n", WSTOPSIG(wstatus));
-        }
-        else if (WIFCONTINUED(wstatus)) {
-          printf("continued\n");
+          printf("Terminated by signal %d\n", WTERMSIG(wstatus));
         }
       } while (!WIFEXITED(wstatus) && !WIFSIGNALED(wstatus));
     }
