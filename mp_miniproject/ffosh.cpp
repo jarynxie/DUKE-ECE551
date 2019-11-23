@@ -11,22 +11,16 @@
 #include <vector>
 using namespace std;
 
-void readCin(const char *& result) {
-  string resultStr;
-  getline(cin, resultStr);
-  result = resultStr.c_str();
-}
-
 void searchVector(const char *& cinRead, char *& environ, vector<string> & search) {
   string envString(environ);
   stringstream envStream(envString);
-  stringstream cinStream(cinRead);
-  string temp = "";
-  while (!envStream.eof()) {
-    getline(envStream, temp, ':');
+  string cinString(cinRead);
+  stringstream cinStream(cinString);
+  string temp;
+  while (getline(envStream, temp, ':')) {
     search.push_back(temp);
   }
-  string fileName = "";
+  string fileName;
   getline(cinStream, fileName, ' ');
   if (fileName.find('/') == string::npos) {
     vector<string>::iterator it = search.begin();
@@ -38,6 +32,19 @@ void searchVector(const char *& cinRead, char *& environ, vector<string> & searc
   }
 }
 
+int checkFiles(vector<string> & range) {
+  vector<string>::iterator it = range.begin();
+  int result = 0;
+  while (it != range.end()) {
+    const char * tempPath = it->c_str();
+    if (!access(tempPath, F_OK)) {
+      return result;
+    }
+    result++;
+    it++;
+  }
+  return -1;
+}
 int main(int argc, char * argv[]) {
   if (argc != 1) {
     cout << "Usage: ./ffosh\n";
@@ -45,14 +52,14 @@ int main(int argc, char * argv[]) {
   }
   char * newenviron[] = {NULL, NULL};
   newenviron[0] = getenv("PATH");
-  //cout << newenviron[0];
   while (true) {
     pid_t cPid, w;
     int wstatus;
     cout << "ffosh$ ";
     char * newargv[] = {NULL, NULL};
-    const char * cinCharStar = "";
-    readCin(cinCharStar);
+    string resultStr;
+    getline(cin, resultStr);
+    const char * cinCharStar = resultStr.c_str();
     if (strcmp(cinCharStar, "exit") == 0) {
       exit(EXIT_SUCCESS);
     }
@@ -61,19 +68,16 @@ int main(int argc, char * argv[]) {
     }
     vector<string> search;
     searchVector(cinCharStar, newenviron[0], search);
+    int fileIndex = checkFiles(search);
     cPid = fork();
     if (cPid == -1) {
       perror("fork");
       exit(EXIT_FAILURE);
     }
     if (cPid == 0) {
-      vector<string>::iterator it = search.begin();
-      while (it != search.end()) {
-        const char * temp = it->c_str();
-        newargv[0] = (char *)temp;
-        execve(newargv[0], newargv, newenviron);
-        it++;
-      }
+      const char * filePath = search[fileIndex].c_str();
+      newargv[0] = (char *)filePath;
+      execve(newargv[0], newargv, newenviron);
       perror("execve");
       exit(EXIT_FAILURE);
     }
