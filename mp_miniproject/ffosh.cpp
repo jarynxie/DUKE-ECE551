@@ -11,7 +11,7 @@
 #include <vector>
 using namespace std;
 
-void searchVector(const char *& cinRead, char *& environ, vector<string> & search) {
+string searchVector(const char *& cinRead, char *& environ, vector<string> & search) {
   string envString(environ);
   stringstream envStream(envString);
   string cinString(cinRead);
@@ -30,6 +30,7 @@ void searchVector(const char *& cinRead, char *& environ, vector<string> & searc
       it++;
     }
   }
+  return fileName;
 }
 
 int checkFiles(vector<string> & range) {
@@ -67,8 +68,12 @@ int main(int argc, char * argv[]) {
       continue;
     }
     vector<string> search;
-    searchVector(cinCharStar, newenviron[0], search);
+    string commandName = searchVector(cinCharStar, newenviron[0], search);
     int fileIndex = checkFiles(search);
+    if (fileIndex == -1) {
+      cout << "Command " << commandName << " not found\n";
+      continue;
+    }
     cPid = fork();
     if (cPid == -1) {
       perror("fork");
@@ -90,13 +95,13 @@ int main(int argc, char * argv[]) {
         }
 
         if (WEXITSTATUS(wstatus) == 0) {
-          printf("Program was successful\n");
+          cout << "Program was successful\n";
         }
         else if (WEXITSTATUS(wstatus) != 0) {
-          printf("Program failed with code %d\n", WEXITSTATUS(wstatus));
+          cout << "Program failed with code " << WEXITSTATUS(wstatus) << endl;
         }
         else if (WIFSIGNALED(wstatus)) {
-          printf("Terminated by signal %d\n", WTERMSIG(wstatus));
+          cout << "Terminated by signal " << WTERMSIG(wstatus) << endl;
         }
       } while (!WIFEXITED(wstatus) && !WIFSIGNALED(wstatus));
     }
