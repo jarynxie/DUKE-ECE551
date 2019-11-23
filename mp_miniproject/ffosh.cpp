@@ -11,28 +11,24 @@
 #include <vector>
 using namespace std;
 
-string searchVector(const char *& cinRead, char *& environ, vector<string> & search) {
+void searchVector(string commandName,
+                  string cinRead,
+                  char * environ,
+                  vector<string> & search) {
   string envString(environ);
   stringstream envStream(envString);
-  string cinString(cinRead);
-  stringstream cinStream(cinString);
+  stringstream cinStream(cinRead);
   string temp;
   while (getline(envStream, temp, ':')) {
     search.push_back(temp);
   }
-  string fileName;
-  getline(cinStream, fileName, ' ');
-  if (fileName.find('/') == string::npos) {
-    vector<string>::iterator it = search.begin();
-    while (it != search.end()) {
-      it->push_back('/');
-      it->append(fileName);
-      it++;
-    }
+  vector<string>::iterator it = search.begin();
+  while (it != search.end()) {
+    it->push_back('/');
+    it->append(commandName);
+    it++;
   }
-  return fileName;
 }
-
 int checkFiles(vector<string> & range) {
   vector<string>::iterator it = range.begin();
   int result = 0;
@@ -45,6 +41,23 @@ int checkFiles(vector<string> & range) {
     it++;
   }
   return -1;
+}
+
+string getCmdName(string cinput, char * environ) {
+  stringstream inStream(cinput);
+  string cmdName;
+  getline(inStream, cmdName, ' ');
+  if (cmdName.find('/') != string::npos) {
+    return cmdName;
+  }
+  vector<string> search;
+  searchVector(cmdName, cinput, environ, search);
+  int pathIndex = checkFiles(search);
+  if (pathIndex == -1) {
+    cout << "Command " << cmdName << " not found\n";
+    return (char *)"";
+  }
+  return search[pathIndex];
 }
 int main(int argc, char * argv[]) {
   if (argc != 1) {
@@ -60,18 +73,15 @@ int main(int argc, char * argv[]) {
     char * newargv[] = {NULL, NULL};
     string resultStr;
     getline(cin, resultStr);
-    const char * cinCharStar = resultStr.c_str();
-    if (strcmp(cinCharStar, "exit") == 0) {
+    if (resultStr == "exit") {
       exit(EXIT_SUCCESS);
     }
-    if (strcmp(cinCharStar, "") == 0) {
+    if (resultStr == "") {
       continue;
     }
     vector<string> search;
-    string commandName = searchVector(cinCharStar, newenviron[0], search);
-    int fileIndex = checkFiles(search);
-    if (fileIndex == -1) {
-      cout << "Command " << commandName << " not found\n";
+    string commandName = getCmdName(resultStr, newenviron[0]);
+    if (commandName == "") {
       continue;
     }
     cPid = fork();
@@ -80,8 +90,9 @@ int main(int argc, char * argv[]) {
       exit(EXIT_FAILURE);
     }
     if (cPid == 0) {
-      const char * filePath = search[fileIndex].c_str();
+      const char * filePath = commandName.c_str();
       newargv[0] = (char *)filePath;
+      cout << filePath;
       execve(newargv[0], newargv, newenviron);
       perror("execve");
       exit(EXIT_FAILURE);
