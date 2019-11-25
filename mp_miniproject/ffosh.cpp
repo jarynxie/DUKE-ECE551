@@ -59,6 +59,61 @@ string getCmdName(string cinput, char * environ) {
   }
   return search[pathIndex];
 }
+
+void parseArg(string & wholeStr, char ** argResult) {
+  vector<string> args;
+  string tempStr;
+  if (wholeStr.find(' ') == string::npos) {
+    return;
+  }
+  string str = wholeStr.substr(wholeStr.find(' ') + 1, wholeStr.length() - 1);
+  bool inQuote = false;
+
+  for (size_t i = 0; i < str.length(); i++) {
+    if (i > 0 && str[i] == '\\' && str[i - 1] == '\\') {
+      continue;
+    }
+
+    if (i > 0 && str[i] == '"' && str[i - 1] == '\\' && str[i - 2] != '\\') {
+      tempStr[tempStr.length() - 1] = '"';
+      continue;
+    }
+
+    if (inQuote) {
+      if (str[i] == '"') {
+        args.push_back(tempStr);
+        tempStr.clear();
+        inQuote = false;
+        continue;
+      }
+      if (i == str.length() - 1) {
+        cout << "unclosed quotation\n";
+        exit(EXIT_FAILURE);
+      }
+    }
+    else {
+      if (str[i] == '"') {
+        inQuote = true;
+        continue;
+      }
+      if (str[i] == ' ') {
+        if (!tempStr.empty()) {
+          args.push_back(tempStr);
+          tempStr.clear();
+        }
+        continue;
+      }
+    }
+    tempStr.push_back(str[i]);
+    if (i == str.length() - 1 && !tempStr.empty()) {
+      args.push_back(tempStr);
+    }
+  }
+  for (size_t j = 0; j < args.size(); j++) {
+    argResult[1 + j] = (char *)args[j].c_str();
+  }
+}
+
 int main(int argc, char * argv[]) {
   if (argc != 1) {
     cout << "Usage: ./ffosh\n";
@@ -70,7 +125,7 @@ int main(int argc, char * argv[]) {
     pid_t cPid, w;
     int wstatus;
     cout << "ffosh$ ";
-    char * newargv[] = {NULL, NULL};
+    char * newargv[256] = {NULL};
     string resultStr;
     getline(cin, resultStr);
     if (resultStr == "exit") {
@@ -92,7 +147,7 @@ int main(int argc, char * argv[]) {
     if (cPid == 0) {
       const char * filePath = commandName.c_str();
       newargv[0] = (char *)filePath;
-      cout << filePath;
+      parseArg(resultStr, newargv);
       execve(newargv[0], newargv, newenviron);
       perror("execve");
       exit(EXIT_FAILURE);
