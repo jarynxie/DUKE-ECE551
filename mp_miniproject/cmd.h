@@ -41,7 +41,7 @@ void Command::parseCmdName(string cinput, char * environ) {
   getline(inStream, tempName, ' ');
   if (tempName.find('/') != string::npos) {
     cmdName = tempName;
-    argVector.push_back(cmdName);
+    argVector.push_back(tempName);
     return;
   }
   vector<string> search;
@@ -50,7 +50,8 @@ void Command::parseCmdName(string cinput, char * environ) {
   if (pathIndex == -1) {
     cout << "Command " << tempName << " not found\n";
     cmdName = "";
-    exit(EXIT_FAILURE);
+    //exit(EXIT_FAILURE);
+    return;
   }
   cmdName = search[pathIndex];
   argVector.push_back(cmdName);
@@ -83,7 +84,8 @@ void Command::parseArg(string wholeStr) {
       }
       if (i == str.length() - 1) {
         cout << "Unclosed quotation!\n";
-        exit(EXIT_FAILURE);
+        //exit(EXIT_FAILURE);
+        return;
       }
     }
     else {
@@ -116,6 +118,7 @@ void Command::execute(string inputStr, char ** newenviron) {
     index++;
     it++;
   }
+
   execve(tempArgv[0], tempArgv, newenviron);
   perror("execve");
   exit(EXIT_FAILURE);

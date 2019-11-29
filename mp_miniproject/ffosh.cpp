@@ -11,7 +11,13 @@
 #include <vector>
 
 #include "cmd.h"
-
+void changeDir(string inputStr) {
+  string dir = inputStr.substr(inputStr.find("cd ") + 3, inputStr.length() - 1);
+  int result = chdir((char *)dir.c_str());
+  if (result == -1) {
+    cout << "Failed to change directory\n";
+  }
+}
 using namespace std;
 int main(int argc, char * argv[]) {
   if (argc != 1) {
@@ -31,6 +37,10 @@ int main(int argc, char * argv[]) {
       exit(EXIT_SUCCESS);
     }
     if (resultStr == "") {
+      continue;
+    }
+    if (resultStr.find("cd") != string::npos) {
+      changeDir(resultStr);
       continue;
     }
     currCmd.parseCmdName(resultStr, newenviron[0]);
