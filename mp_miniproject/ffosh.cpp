@@ -30,7 +30,9 @@ int main(int argc, char * argv[]) {
     pid_t cPid, w;
     int wstatus;
     Command currCmd;
-    cout << "ffosh$ ";
+    char * curDir = get_current_dir_name();
+    cout << "ffosh:" << curDir << " $";
+    free(curDir);
     string resultStr;
     getline(cin, resultStr);
     if (resultStr == "exit") {
