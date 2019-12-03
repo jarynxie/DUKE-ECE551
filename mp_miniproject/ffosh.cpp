@@ -27,9 +27,8 @@ int main(int argc, char * argv[]) {
   }
   Shell cmdShell;
   char * newenviron[] = {NULL, NULL};
-  //char * ECE551PATH = getenv("PATH");
-  setenv("ECE551PATH", getenv("PATH"), 1);
-  //newenviron[0] = getenv("PATH");
+  //setenv("ECE551PATH", getenv("PATH"), 1);
+  cmdShell.initPath();
   while (true) {
     //newenviron[0] = getenv("ECE551PATH");
     pid_t cPid, w;
@@ -77,7 +76,8 @@ int main(int argc, char * argv[]) {
       exit(EXIT_FAILURE);
     }
     if (cPid == 0) {
-      currCmd.execute(resultStr, newenviron);
+      map<string, string> varMap = cmdShell.getVarMap();
+      currCmd.execute(resultStr, newenviron, varMap);
       perror("execve");
       exit(EXIT_FAILURE);
     }

@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <sstream>
 #include <vector>
 
@@ -20,19 +21,15 @@ class Command {
                     char *& environ,
                     vector<string> & search);
   int checkFiles(vector<string> & range);
+  void checkVar(map<string, string> & map);
 
  public:
-  /*
-  Command() : cmdName(NULL) {
-    for (size_t i = 0; i < 256; i++) {
-      argVector[i] = NULL;
-    }
-  }
-  */
+  Command(){};
   char * getCmdName() { return (char *)cmdName.c_str(); }
   void parseCmdName(string & cinput, char *& environ);
   void parseArg(string & wholeStr);
-  void execute(string & inputStr, char ** newenviron);
+  void execute(string & inputStr, char ** newenviron, map<string, string> & map);
+  ~Command(){};
 };
 
 void Command::parseCmdName(string & cinput, char *& environ) {
@@ -108,8 +105,9 @@ void Command::parseArg(string & wholeStr) {
   }
 }
 
-void Command::execute(string & inputStr, char ** newenviron) {
+void Command::execute(string & inputStr, char ** newenviron, map<string, string> & map) {
   parseArg(inputStr);
+  checkVar(map);
   char * tempArgv[256] = {NULL};
   vector<string>::iterator it = argVector.begin();
   size_t index = 0;
@@ -157,4 +155,39 @@ int Command::checkFiles(vector<string> & range) {
     it++;
   }
   return -1;
+}
+
+void Command::checkVar(map<string, string> & map) {
+  vector<string>::iterator argIt = argVector.begin();
+  argIt++;
+  while (argIt != argVector.end()) {
+    string str = *argIt;
+    stringstream ss(str);
+    string temp;
+    vector<string> search;
+    while (getline(ss, temp, '$')) {
+      if (temp != "" && str[max((int)str.find(temp) - 1, 0)] == '$') {
+        search.push_back(temp);
+      }
+    }
+    vector<string>::iterator it = search.begin();
+    while (it != search.end()) {
+      for (size_t i = 0; i < it->length(); i++) {
+        size_t len = it->length();
+        string temp = it->substr(0, len - i);
+        if (map.find(temp) != map.end()) {
+          string value = map.find(temp)->second;
+          size_t pos = str.find(*it);
+          string before = str.substr(0, pos - 1);
+          string after = str.substr(pos + temp.length(), str.length() - 1);
+          str = before.append(value);
+          str.append(after);
+          *argIt = str;
+          break;
+        }
+      }
+      it++;
+    }
+    argIt++;
+  }
 }
