@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "cmd.h"
+#include "shell.h"
 void changeDir(string inputStr) {
   string dir = inputStr.substr(inputStr.find("cd ") + 3, inputStr.length() - 1);
   int result = chdir((char *)dir.c_str());
@@ -24,9 +25,13 @@ int main(int argc, char * argv[]) {
     cout << "Usage: ./ffosh\n";
     exit(EXIT_FAILURE);
   }
+  Shell cmdShell;
   char * newenviron[] = {NULL, NULL};
-  newenviron[0] = getenv("PATH");
+  //char * ECE551PATH = getenv("PATH");
+  setenv("ECE551PATH", getenv("PATH"), 1);
+  //newenviron[0] = getenv("PATH");
   while (true) {
+    //newenviron[0] = getenv("ECE551PATH");
     pid_t cPid, w;
     int wstatus;
     Command currCmd;
@@ -41,10 +46,27 @@ int main(int argc, char * argv[]) {
     if (resultStr == "") {
       continue;
     }
+    if (resultStr == "env") {
+      cmdShell.printEnv();
+      continue;
+    }
     if (resultStr.find("cd") != string::npos) {
       changeDir(resultStr);
       continue;
     }
+    if (resultStr.substr(0, 3) == "set") {
+      cmdShell.setVar(resultStr);
+      continue;
+    }
+    if (resultStr.substr(0, 6) == "export") {
+      cmdShell.exportVar(resultStr);
+      continue;
+    }
+    if (resultStr.substr(0, 3) == "rev") {
+      cmdShell.revVar(resultStr);
+      continue;
+    }
+    newenviron[0] = getenv("ECE551PATH");
     currCmd.parseCmdName(resultStr, newenviron[0]);
     if (strcmp(currCmd.getCmdName(), "") == 0) {
       continue;
@@ -56,6 +78,8 @@ int main(int argc, char * argv[]) {
     }
     if (cPid == 0) {
       currCmd.execute(resultStr, newenviron);
+      perror("execve");
+      exit(EXIT_FAILURE);
     }
     else {
       do {

@@ -15,9 +15,9 @@ class Command {
  private:
   string cmdName;
   vector<string> argVector;
-  void searchVector(string commandName,
-                    string cinRead,
-                    char * environ,
+  void searchVector(string & commandName,
+                    string & cinRead,
+                    char *& environ,
                     vector<string> & search);
   int checkFiles(vector<string> & range);
 
@@ -30,12 +30,12 @@ class Command {
   }
   */
   char * getCmdName() { return (char *)cmdName.c_str(); }
-  void parseCmdName(string cinput, char * environ);
-  void parseArg(string wholeStr);
-  void execute(string inputStr, char ** newenviron);
+  void parseCmdName(string & cinput, char *& environ);
+  void parseArg(string & wholeStr);
+  void execute(string & inputStr, char ** newenviron);
 };
 
-void Command::parseCmdName(string cinput, char * environ) {
+void Command::parseCmdName(string & cinput, char *& environ) {
   stringstream inStream(cinput);
   string tempName;
   getline(inStream, tempName, ' ');
@@ -57,7 +57,7 @@ void Command::parseCmdName(string cinput, char * environ) {
   argVector.push_back(cmdName);
 }
 
-void Command::parseArg(string wholeStr) {
+void Command::parseArg(string & wholeStr) {
   string tempStr;
   if (wholeStr.find(' ') == string::npos) {
     return;
@@ -108,7 +108,7 @@ void Command::parseArg(string wholeStr) {
   }
 }
 
-void Command::execute(string inputStr, char ** newenviron) {
+void Command::execute(string & inputStr, char ** newenviron) {
   parseArg(inputStr);
   char * tempArgv[256] = {NULL};
   vector<string>::iterator it = argVector.begin();
@@ -120,13 +120,15 @@ void Command::execute(string inputStr, char ** newenviron) {
   }
 
   execve(tempArgv[0], tempArgv, newenviron);
-  perror("execve");
-  exit(EXIT_FAILURE);
+  return;
+  //argVector.clear();
+  //perror("execve");
+  //exit(EXIT_FAILURE);
 }
 
-void Command::searchVector(string commandName,
-                           string cinRead,
-                           char * environ,
+void Command::searchVector(string & commandName,
+                           string & cinRead,
+                           char *& environ,
                            vector<string> & search) {
   string envString(environ);
   stringstream envStream(envString);
