@@ -83,12 +83,12 @@ void Command::parseArg(string & wholeStr) {
     return;
   }
   string str = wholeStr.substr(wholeStr.find(' ') + 1, wholeStr.length() - 1);
-
+  
   for (size_t i = 0; i < str.length(); i++) {
-    bool inQuote = false;
     if (i > 0 && str[i] == '\\' && str[i - 1] == '\\') {
       continue;
     }
+
     if (i > 0 && str[i] == '"' && str[i - 1] == '\\' && str[i - 2] != '\\') {
       tempStr[tempStr.length() - 1] = '"';
       continue;
@@ -130,6 +130,7 @@ void Command::execute(string & inputStr, char ** newenviron, map<string, string>
   parseArg(inputStr);
   checkVar(map);
   char * tempArgv[256] = {NULL};
+  cout << "test" << argVector[0] << endl;
   vector<string>::iterator it = argVector.begin();
   size_t index = 0;
   while (it != argVector.end()) {

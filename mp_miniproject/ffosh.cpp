@@ -91,8 +91,9 @@ int main(int argc, char * argv[]) {
     }
     //Get the value of "ECE551PATH", which has been initialized with initVar() before
     newenviron[0] = getenv("ECE551PATH");
+    map<string, string> varMap = cmdShell.getVarMap();
     //Parse the command name
-    currCmd.parseCmdName(resultStr, newenviron[0]);
+    currCmd.parseCmdName(resultStr, newenviron[0], varMap);
     //If command name is empty, open a new prompt
     if (strcmp(currCmd.getCmdName(), "") == 0) {
       continue;
@@ -106,7 +107,7 @@ int main(int argc, char * argv[]) {
     }
     //If child process, execute the command
     if (cPid == 0) {
-      map<string, string> varMap = cmdShell.getVarMap();
+      //map<string, string> varMap = cmdShell.getVarMap();
       currCmd.execute(resultStr, newenviron, varMap);
       //If execve returns, exports error
       perror("execve");
