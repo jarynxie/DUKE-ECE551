@@ -61,7 +61,7 @@ void Shell::initVar(void) {
 //except that the user is trying to change "ECE551PATH".
 void Shell::setVar(string & inputStr) {
   //Check if the commad starts with "set"
-  if (inputStr.substr(0, 4) != "set ") {
+  if (inputStr.substr(0, 4) != "set " || inputStr.length() < 5) {
     cout << "Usage: set var value" << endl;
     return;
   }
@@ -110,7 +110,7 @@ void Shell::setVar(string & inputStr) {
 //This method parse the input and export the according variable
 void Shell::exportVar(string & inputStr) {
   //assert(inputStr.find("export") != string::npos);
-  if (inputStr.substr(0, 7) != "export ") {
+  if (inputStr.substr(0, 7) != "export " || inputStr.length() < 8) {
     cout << "Usage: export var" << endl;
     return;
   }
@@ -140,7 +140,7 @@ void Shell::exportVar(string & inputStr) {
 //except that the user is trying to change "ECE551PATH".
 void Shell::revVar(string & inputStr) {
   //Check if the input starts with "rev"
-  if (inputStr.substr(0, 4) != "rev ") {
+  if (inputStr.substr(0, 4) != "rev " || inputStr.length() < 5) {
     cout << "Usage: rev var" << endl;
     return;
   }

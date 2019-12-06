@@ -317,18 +317,25 @@ Program was successful
 This is correct because I choose to evaluate a variable with eveything after "var ", including spaces
 
 (3-13)
+ffosh:/home/jx95/ece551/mp_miniproject $set cdvar ..
+ffosh:/home/jx95/ece551/mp_miniproject $cd $cdvar
+ffosh:/home/jx95/ece551 $
+
+This is correct because it replaces "cdvar" with its value and change the current directory accordingly.
+
+(3-14)
 ffosh:/home/jx95/ece551/mp_miniproject $export
 Usage: export var
 
 This is correct because the test case didn't use the valid usage to export variable, variable name must be included.
 
-(3-14)
+(3-15)
 ffosh:/home/jx95/ece551/mp_miniproject $export notexist
 Variable not found!
 
 This is correct because the variable doesn't exist, so I cannot export it.
 
-(3-15)
+(3-16)
 ffosh:/home/jx95/ece551/mp_miniproject $echo $xjy
 11223344
 Program was successful
@@ -339,13 +346,13 @@ Program was successful
 
 This is correct because the value of the specified variable is successfully reversed.
 
-(3-16)
+(3-17)
 ffosh:/home/jx95/ece551/mp_miniproject $rev notexist
 Variable not found!
 
 This is correct because the variable doesn't exist, so it cannot be reversed.
 
-(3-17) same as (2-8)
+(3-18) same as (2-8)
 ffosh:/home/jx95/ece551/mp_miniproject $status
 No gradings in progress
 ===========================================

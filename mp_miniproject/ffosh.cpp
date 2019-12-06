@@ -16,9 +16,15 @@
 extern char ** environ;
 // This function changes current directory, error will be reported if failed.
 using namespace std;
-void changeDir(string inputStr) {
+void changeDir(string inputStr, map<string, string> map) {
   //Parse the input to get the directory
   string dir = inputStr.substr(inputStr.find("cd ") + 3, inputStr.length() - 1);
+  //Check if need to do variable evaluation
+  if (dir[0] == '$') {
+    if (map.find(dir.substr(1, dir.length() - 1)) != map.end()) {
+      dir = map.find(dir.substr(1, dir.length() - 1))->second;
+    }
+  }
   //Change the directory and give the result to "result"
   int result = chdir((char *)dir.c_str());
   //Check if it is successful or not
@@ -49,6 +55,8 @@ int main(int argc, char * argv[]) {
     //Free the char * returned by get_current_dir_name()
     free(curDir);
     string resultStr;
+    //Get the variable map
+    map<string, string> varMap = cmdShell.getVarMap();
     //If input encountered EOF, exist the shell
     while (!getline(cin, resultStr)) {
       cout << endl;
@@ -69,7 +77,7 @@ int main(int argc, char * argv[]) {
     }
     //If start with "cd", change the current directory accordingly
     if (resultStr.substr(0, 2) == "cd") {
-      changeDir(resultStr);
+      changeDir(resultStr, varMap);
       continue;
     }
     //If start with "set", set the vriable accordingly
@@ -87,7 +95,6 @@ int main(int argc, char * argv[]) {
       cmdShell.revVar(resultStr);
       continue;
     }
-    map<string, string> varMap = cmdShell.getVarMap();
     //Get the value of "ECE551PATH", which has been initialized with initVar() before
     char * ece551p = getenv("ECE551PATH");
     //Parse the command name
