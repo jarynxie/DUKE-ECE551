@@ -38,7 +38,8 @@ class Command {
   //Parse all the arguments  according to input string and push to argument vector
   void parseArg(string & wholeStr);
   //Execute the command
-  void execute(string & inputStr, char ** newenviron, map<string, string> & map);
+  //void execute(string & inputStr, char ** newenviron, map<string, string> & map);
+  void execute(string & inputStr, map<string, string> & map);
   ~Command(){};
 };
 
@@ -142,7 +143,7 @@ void Command::parseArg(string & wholeStr) {
 }
 
 //This method is to execute the according command by the input
-void Command::execute(string & inputStr, char ** newenviron, map<string, string> & map) {
+void Command::execute(string & inputStr, map<string, string> & map) {
   //Parse the arguments and replace variable's name with its value
   parseArg(inputStr);
   checkVar(map);
@@ -156,7 +157,7 @@ void Command::execute(string & inputStr, char ** newenviron, map<string, string>
     it++;
   }
   //execute the command
-  execve(tempArgv[0], tempArgv, newenviron);
+  execve(tempArgv[0], tempArgv, environ);
   return;
 }
 

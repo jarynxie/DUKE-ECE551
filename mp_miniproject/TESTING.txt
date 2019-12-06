@@ -121,11 +121,13 @@ mp_miniproject Due: Sun Dec  8 18:59:59 2019
    -> requires 1
 Program was successful
 ffosh:/home/jx95/ece551/mp_miniproject $set ECE551PATH /usr/games:/usr/local/games
-ffosh:/home/jx95/ece551/mp_miniproject $export ECE551PATH
+Trying to change ECE551PATH, automically export it.
+Run myenv to check if ECE551PATH was changed.
 ffosh:/home/jx95/ece551/mp_miniproject $status
 Command status not found
 
 This is correct because I changed the value of ECE551PATH, resulting in "status" command not found after the change.
+And if you try to run "myenv", you can see that the value of it has been changed.
 
 (2-9)
 ffosh:/home/jx95/ece551/mp_miniproject $ls -l
@@ -203,6 +205,12 @@ This is correct because it shows that changing PATH cannot affect the search ran
 
 
 ----------------- Test cases for step3 ----------------
+Note: As stated on Piazza, I can choose if to automically export the variable that's already been exported before.
+Here, I choose that the user must EXPORT IT AGAIN after changing the variable's value,
+However, if the user want to chnge "ECE551PATH", it will be automically exported. In order to check if the change is
+successful, you can run "myenv" after the change to see if it works (because now the search range has changed, "env"
+may not be found in ECE551PATH).
+-------------------------------------------------------
 (3-1)
 case1:
 ffosh:/home/jx95/ece551/mp_miniproject $cd ./testcases
@@ -260,6 +268,12 @@ Program was successful
 This is correct because there is no variable named "nosuchvar", so it just print the string out.
 
 (3-7)
+ffosh:/home/jx95/ece551/mp_miniproject $$PATH
+Command /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games not found
+
+This is correct because the command name is now replaced with the variable's value and it cannot be found.
+
+(3-8)
 ffosh:/home/jx95/ece551/mp_miniproject $set xjy 12345
 ffosh:/home/jx95/ece551/mp_miniproject $env
 ffosh:/home/jx95/ece551/mp_miniproject $echo $xjy
@@ -269,19 +283,19 @@ Program was successful
 There are too many variables, so I don't include them here. However, there is no such variable that named "xjy".
 But I when typing "$xjy", my shell replaces it with its value.
 
-(3-8)
+(3-9)
 ffosh:/home/jx95/ece551/mp_miniproject $set
 Usage: set var value
 
 This is correct because the test case didn't follow the correct usage.
 
-(3-9)
+(3-10)
 ffosh:/home/jx95/ece551/mp_miniproject $set 12!cww 32412
 Invalid variable name!
 
 This is correct because the variable name is invalid, it must be a combination of letters, underscores and numbers.
 
-(3-10)
+(3-11)
 ffosh:/home/jx95/ece551/mp_miniproject $set xjy 123
 ffosh:/home/jx95/ece551/mp_miniproject $env
 (output didn't inclue here, no variable named "xjy")
@@ -292,19 +306,19 @@ xjy=123
 
 This is correct because variable can only be put in the environment after calling "export".
 
-(3-11)
+(3-12)
 ffosh:/home/jx95/ece551/mp_miniproject $export
 Usage: export var
 
 This is correct because the test case didn't use the valid usage to export variable, variable name must be included.
 
-(3-12)
+(3-13)
 ffosh:/home/jx95/ece551/mp_miniproject $export notexist
 Variable not found!
 
 This is correct because the variable doesn't exist, so I cannot export it.
 
-(3-13)
+(3-14)
 ffosh:/home/jx95/ece551/mp_miniproject $echo $xjy
 11223344
 Program was successful
@@ -315,13 +329,13 @@ Program was successful
 
 This is correct because the value of the specified variable is successfully reversed.
 
-(3-14)
+(3-15)
 ffosh:/home/jx95/ece551/mp_miniproject $rev notexist
 Variable not found!
 
 This is correct because the variable doesn't exist, so it cannot be reversed.
 
-(3-15) same as (2-8)
+(3-16) same as (2-8)
 ffosh:/home/jx95/ece551/mp_miniproject $status
 No gradings in progress
 ===========================================
@@ -333,12 +347,13 @@ mp_miniproject Due: Sun Dec  8 18:59:59 2019
    -> requires 1
 Program was successful
 ffosh:/home/jx95/ece551/mp_miniproject $set ECE551PATH /usr/games:/usr/local/games
-ffosh:/home/jx95/ece551/mp_miniproject $export ECE551PATH
+Trying to change ECE551PATH, automically export it.
+Run myenv to check if ECE551PATH was changed.
 ffosh:/home/jx95/ece551/mp_miniproject $status
 Command status not found
 
 This is correct because I changed the value of ECE551PATH, resulting in "status" command not found after the change.
-
+And if you try to run "myenv", you can see that the value of it has been changed.
 
 ----------------- Test cases for step4 ----------------
 (4-1)

@@ -16,6 +16,8 @@ class Shell {
  private:
   //Use a private map to store all the variables
   map<string, string> varMap;
+  //If user is changing ECE551PATH, export it automically.
+  void ifChange551(string name, string value);
 
  public:
   Shell(){};
@@ -27,7 +29,7 @@ class Shell {
   void exportVar(string & inputStr);
   //Reverse the variable accordingly.
   void revVar(string & inputStr);
-  //Support "env", which prints all the variables
+  //Support my own "env" in case ECE551PATH was changed, which prints all the variables
   void printEnv(void);
   //Return the variable map
   map<string, string> getVarMap(void);
@@ -54,6 +56,9 @@ void Shell::initVar(void) {
 }
 
 //This method parse the input and set the variable accordingly
+//Note: As stated on Piazza, I can choose if to automically export the variable that's already been exported before.
+//Here, I choose that the user must EXPORT IT AGAIN after changing the variable's value,
+//except that the user is trying to change "ECE551PATH".
 void Shell::setVar(string & inputStr) {
   //Check if the commad starts with "set"
   if (inputStr.substr(0, 4) != "set ") {
@@ -79,16 +84,20 @@ void Shell::setVar(string & inputStr) {
   //PArse the variable's value.
   string value = varnValue.substr(deli + 1, varnValue.length() - 1);
   //If user tries to change ECE551PATH, automically export it.
+  ifChange551(var, value);
+  /*
   if (var == "ECE551PATH") {
     int setResult = setenv("ECE551PATH", (char *)value.c_str(), 1);
     if (setResult == -1) {
       cout << "Unable to change ECE551PATH!" << endl;
     }
     else {
-      cout << "Trying to change ECE551PATH, automically export it.Run env to check."
-           << endl;
+      cout << "Trying to change ECE551PATH, automically export it." << endl;
+      cout << "Run myenv to check if ECE551PATH was changed." << endl;
+      return;
     }
   }
+  */
   //Check if the variable already exists. If so, just change it's value
   if (varMap.find(var) != varMap.end()) {
     varMap.find(var)->second = value;
@@ -99,7 +108,6 @@ void Shell::setVar(string & inputStr) {
 }
 
 //This method parse the input and export the according variable
-//Note: As stated on Piazza, I can choose if to automically export the variable that's already been exported before. Here, I choose that the user must EXPORT IT AGAIN after changing the variable's value, except that the user is trying to change "ECE551PATH".
 void Shell::exportVar(string & inputStr) {
   //assert(inputStr.find("export") != string::npos);
   if (inputStr.substr(0, 7) != "export ") {
@@ -121,12 +129,15 @@ void Shell::exportVar(string & inputStr) {
   int setResult = setenv(name, value, 1);
   //Check if setenv is successfult. If not, report error
   if (setResult == -1) {
-    cout << "Failed to export variable!" << endl;
+    cout << "Failed to export the variable!" << endl;
     return;
   }
 }
 
 //This method parse the input string and reverse the accorind variable
+//Note: As stated on Piazza, I can choose if to automically export the variable that's already been exported before.
+//Here, I choose that the user must EXPORT IT AGAIN after changing the variable's value.
+//except that the user is trying to change "ECE551PATH".
 void Shell::revVar(string & inputStr) {
   //Check if the input starts with "rev"
   if (inputStr.substr(0, 4) != "rev ") {
@@ -143,9 +154,11 @@ void Shell::revVar(string & inputStr) {
   }
   //Reverse the value of variable
   reverse(it->second.begin(), it->second.end());
+  //Check if trying to reverse ECE551PATH
+  ifChange551(varName, it->second);
 }
 
-//This method is used to support "env", which prints all the variables
+//After changing ECE551PATH, use myenv to see if the change succeeded
 void Shell::printEnv() {
   for (int i = 0; environ[i] != NULL; i++) {
     cout << environ[i] << endl;
@@ -155,6 +168,23 @@ void Shell::printEnv() {
 //This method return the varMap of the current shell
 map<string, string> Shell::getVarMap(void) {
   return varMap;
+}
+
+//Check If the user is trying to change ECE551PATH.
+//If so, automically export it.
+void Shell::ifChange551(string name, string value) {
+  if (name == "ECE551PATH") {
+    //Try to export ECE551PATH with new value
+    int setResult = setenv("ECE551PATH", (char *)value.c_str(), 1);
+    if (setResult == -1) {
+      cout << "Unable to change ECE551PATH!" << endl;
+    }
+    else {
+      cout << "Trying to change ECE551PATH, automically export it." << endl;
+      cout << "Run myenv to check if ECE551PATH was changed." << endl;
+      return;
+    }
+  }
 }
 
 #endif

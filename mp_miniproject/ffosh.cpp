@@ -35,10 +35,6 @@ int main(int argc, char * argv[]) {
   }
   //Declare a shell object named cmdShell
   Shell cmdShell;
-  /*
-  //Declare the new environment
-  char * newenviron[] = {NULL, NULL};
-  */
   //Initialize ECE551PATH and other variables
   cmdShell.initVar();
   while (true) {
@@ -61,19 +57,16 @@ int main(int argc, char * argv[]) {
     //If type "exit", exit the shell
     if (resultStr.substr(0, 4) == "exit") {
       break;
-      //exit(EXIT_SUCCESS);
     }
     //If the user type nothing, print a new prompt
     if (resultStr == "") {
       continue;
     }
-    /*
-    //If type "env", print all the variables
-    if (resultStr == "env") {
+    //After changing ECE551PATHIf, run "myenv" to see all the variables
+    if (resultStr == "myenv") {
       cmdShell.printEnv();
       continue;
     }
-    */
     //If start with "cd", change the current directory accordingly
     if (resultStr.substr(0, 2) == "cd") {
       changeDir(resultStr);
@@ -94,12 +87,10 @@ int main(int argc, char * argv[]) {
       cmdShell.revVar(resultStr);
       continue;
     }
-    //Get the value of "ECE551PATH", which has been initialized with initVar() before
-    //newenviron[0] = getenv("ECE551PATH");
     map<string, string> varMap = cmdShell.getVarMap();
-    //Parse the command name
-    //currCmd.parseCmdName(resultStr, newenviron[0], varMap);
+    //Get the value of "ECE551PATH", which has been initialized with initVar() before
     char * ece551p = getenv("ECE551PATH");
+    //Parse the command name
     currCmd.parseCmdName(resultStr, ece551p, varMap);
     //If command name is empty, open a new prompt
     if (strcmp(currCmd.getCmdName(), "") == 0) {
@@ -114,8 +105,7 @@ int main(int argc, char * argv[]) {
     }
     //If child process, execute the command
     if (cPid == 0) {
-      //map<string, string> varMap = cmdShell.getVarMap();
-      currCmd.execute(resultStr, newenviron, varMap);
+      currCmd.execute(resultStr, varMap);
       //If execve returns, exports error
       perror("execve");
       exit(EXIT_FAILURE);
