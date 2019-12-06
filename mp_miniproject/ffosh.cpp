@@ -13,6 +13,7 @@
 #include "cmd.h"
 #include "shell.h"
 
+extern char ** environ;
 // This function changes current directory, error will be reported if failed.
 using namespace std;
 void changeDir(string inputStr) {
@@ -34,8 +35,10 @@ int main(int argc, char * argv[]) {
   }
   //Declare a shell object named cmdShell
   Shell cmdShell;
+  /*
   //Declare the new environment
   char * newenviron[] = {NULL, NULL};
+  */
   //Initialize ECE551PATH and other variables
   cmdShell.initVar();
   while (true) {
@@ -64,11 +67,13 @@ int main(int argc, char * argv[]) {
     if (resultStr == "") {
       continue;
     }
+    /*
     //If type "env", print all the variables
     if (resultStr == "env") {
       cmdShell.printEnv();
       continue;
     }
+    */
     //If start with "cd", change the current directory accordingly
     if (resultStr.substr(0, 2) == "cd") {
       changeDir(resultStr);
@@ -90,10 +95,12 @@ int main(int argc, char * argv[]) {
       continue;
     }
     //Get the value of "ECE551PATH", which has been initialized with initVar() before
-    newenviron[0] = getenv("ECE551PATH");
+    //newenviron[0] = getenv("ECE551PATH");
     map<string, string> varMap = cmdShell.getVarMap();
     //Parse the command name
-    currCmd.parseCmdName(resultStr, newenviron[0], varMap);
+    //currCmd.parseCmdName(resultStr, newenviron[0], varMap);
+    char * ece551p = getenv("ECE551PATH");
+    currCmd.parseCmdName(resultStr, ece551p, varMap);
     //If command name is empty, open a new prompt
     if (strcmp(currCmd.getCmdName(), "") == 0) {
       continue;
