@@ -1,3 +1,6 @@
+#ifndef __SHELL_H__
+#define __SHELL_H__
+
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
@@ -75,6 +78,17 @@ void Shell::setVar(string & inputStr) {
   }
   //PArse the variable's value.
   string value = varnValue.substr(deli + 1, varnValue.length() - 1);
+  //If user tries to change ECE551PATH, automically export it.
+  if (var == "ECE551PATH") {
+    int setResult = setenv("ECE551PATH", (char *)value.c_str(), 1);
+    if (setResult == -1) {
+      cout << "Unable to change ECE551PATH!" << endl;
+    }
+    else {
+      cout << "Trying to change ECE551PATH, automically export it.Run env to check."
+           << endl;
+    }
+  }
   //Check if the variable already exists. If so, just change it's value
   if (varMap.find(var) != varMap.end()) {
     varMap.find(var)->second = value;
@@ -85,6 +99,7 @@ void Shell::setVar(string & inputStr) {
 }
 
 //This method parse the input and export the according variable
+//Note: As stated on Piazza, I can choose if to automically export the variable that's already been exported before. Here, I choose that the user must EXPORT IT AGAIN after changing the variable's value, except that the user is trying to change "ECE551PATH".
 void Shell::exportVar(string & inputStr) {
   //assert(inputStr.find("export") != string::npos);
   if (inputStr.substr(0, 7) != "export ") {
@@ -112,7 +127,6 @@ void Shell::exportVar(string & inputStr) {
 }
 
 //This method parse the input string and reverse the accorind variable
-//Note: As stated on Piazza, I can choose if to automically export the variable that's already been exported before. Here, I choose that the user must EXPORT IT AGAIN after changing the variable's value.
 void Shell::revVar(string & inputStr) {
   //Check if the input starts with "rev"
   if (inputStr.substr(0, 4) != "rev ") {
@@ -142,3 +156,5 @@ void Shell::printEnv() {
 map<string, string> Shell::getVarMap(void) {
   return varMap;
 }
+
+#endif

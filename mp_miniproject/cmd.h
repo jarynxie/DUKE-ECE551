@@ -1,3 +1,5 @@
+#ifndef __CMD_H__
+#define __CMD_H__
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -77,40 +79,51 @@ void Command::parseCmdName(string & cinput, char *& environ, map<string, string>
   }
 }
 
+//This method is to parse the arguments and push them to argvector
 void Command::parseArg(string & wholeStr) {
   string tempStr;
+  //Check if the input is valid
   if (wholeStr.find(' ') == string::npos) {
     return;
   }
+  //Get the string of input that excludes the command name
   string str = wholeStr.substr(wholeStr.find(' ') + 1, wholeStr.length() - 1);
 
   for (size_t i = 0; i < str.length(); i++) {
+    //Set a bool to indicate if in quotation mark
     bool inQuote = false;
+    //If contains \\, handle it later
     if (i > 0 && str[i] == '\\' && str[i - 1] == '\\') {
       continue;
     }
+    //Handle \"
     if (i > 0 && str[i] == '"' && str[i - 1] == '\\' && str[i - 2] != '\\') {
       tempStr[tempStr.length() - 1] = '"';
       continue;
     }
 
     if (inQuote) {
+      //If reach the end of quotation, add to argVector
       if (str[i] == '"') {
         argVector.push_back(tempStr);
         tempStr.clear();
+        //Unmark the inQuote flag to indicate that it is now out of quotation
         inQuote = false;
         continue;
       }
+      //If reaches the end of input but still don't see a closed quotation mark, report error
       if (i == str.length() - 1) {
         cout << "Unclosed quotation!\n";
         return;
       }
     }
     else {
+      //Detect if it is now in quotation
       if (str[i] == '"') {
         inQuote = true;
         continue;
       }
+      //A space means a new argument, push the old one to argVector
       if (str[i] == ' ') {
         if (!tempStr.empty()) {
           argVector.push_back(tempStr);
@@ -119,29 +132,35 @@ void Command::parseArg(string & wholeStr) {
         continue;
       }
     }
+    //Push the current valut to the back of string
     tempStr.push_back(str[i]);
+    //If reach the end, push the last argument in argvector
     if (i == str.length() - 1 && !tempStr.empty()) {
       argVector.push_back(tempStr);
     }
   }
 }
 
+//This method is to execute the according command by the input
 void Command::execute(string & inputStr, char ** newenviron, map<string, string> & map) {
+  //Parse the arguments and replace variable's name with its value
   parseArg(inputStr);
   checkVar(map);
   char * tempArgv[256] = {NULL};
   vector<string>::iterator it = argVector.begin();
   size_t index = 0;
+  //Create char * according to vector of strings
   while (it != argVector.end()) {
     tempArgv[index] = (char *)it->c_str();
     index++;
     it++;
   }
-
+  //execute the command
   execve(tempArgv[0], tempArgv, newenviron);
   return;
 }
 
+//This method is to create the search range for the command name
 void Command::searchVector(string & commandName,
                            string & cinRead,
                            char *& environ,
@@ -150,10 +169,12 @@ void Command::searchVector(string & commandName,
   stringstream envStream(envString);
   stringstream cinStream(cinRead);
   string temp;
+  //Separate different paths by ":"
   while (getline(envStream, temp, ':')) {
     search.push_back(temp);
   }
   vector<string>::iterator it = search.begin();
+  //Create all the possible absolute paths
   while (it != search.end()) {
     it->push_back('/');
     it->append(commandName);
@@ -161,6 +182,7 @@ void Command::searchVector(string & commandName,
   }
 }
 
+//This method search the input vector to see if the command exists and return the position of it
 int Command::checkFiles(vector<string> & range) {
   vector<string>::iterator it = range.begin();
   int result = 0;
@@ -172,6 +194,7 @@ int Command::checkFiles(vector<string> & range) {
     result++;
     it++;
   }
+  //If fail to find the command, return -1
   return -1;
 }
 
@@ -209,3 +232,4 @@ void Command::checkVar(map<string, string> & map) {
     argIt++;
   }
 }
+#endif
