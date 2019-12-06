@@ -15,41 +15,57 @@ using namespace std;
 class Command {
  private:
   string cmdName;
+  //Private vector to store all the arguments
   vector<string> argVector;
+  //Private helper method to creat the search vector to search the location of the command
+  bool ifExist;
   void searchVector(string & commandName,
                     string & cinRead,
                     char *& environ,
                     vector<string> & search);
+  //Private helper method to return the location of the command in the search vector
   int checkFiles(vector<string> & range);
+  //Private helper method to transfer arguments that contain cariable to its value
   void checkVar(map<string, string> & map);
 
  public:
-  Command(){};
+  Command() : ifExist(true){};
+  //Return the name of current command
   char * getCmdName() { return (char *)cmdName.c_str(); }
+  //Parse the argument name  according to input string and push to argument vector
   void parseCmdName(string & cinput, char *& environ);
+  //Parse all the arguments  according to input string and push to argument vector
   void parseArg(string & wholeStr);
+  //Execute the command
   void execute(string & inputStr, char ** newenviron, map<string, string> & map);
   ~Command(){};
 };
 
+//This method parses the name of the argument and push it as the first element in the vector
 void Command::parseCmdName(string & cinput, char *& environ) {
   stringstream inStream(cinput);
   string tempName;
+  //Get the name of the command
   getline(inStream, tempName, ' ');
+  //If it has '/', just push it to the vector
   if (tempName.find('/') != string::npos) {
     cmdName = tempName;
     argVector.push_back(tempName);
     return;
   }
   vector<string> search;
+  //The command doesn't contain '/', create the search vector to fill its path
   searchVector(tempName, cinput, environ, search);
+  //Get the first location of the command in the search vector
   int pathIndex = checkFiles(search);
+  //If command doesn't exist in the search range, report error
   if (pathIndex == -1) {
-    cout << "Command " << tempName << " not found\n";
-    cmdName = "";
-    //exit(EXIT_FAILURE);
+    ifExist = false;
+    //cout << "Command " << tempName << " not found\n";
+    //cmdName = "";
     return;
   }
+  //If found, push the command into the vector as the first element
   cmdName = search[pathIndex];
   argVector.push_back(cmdName);
 }
@@ -109,6 +125,11 @@ void Command::execute(string & inputStr, char ** newenviron, map<string, string>
   parseArg(inputStr);
   checkVar(map);
   char * tempArgv[256] = {NULL};
+  if (ifExist == false) {
+    cout << "Command " << (char *)argVector[0].c_str() << " not found\n";
+    cmdName = "";
+    return;
+  }
   vector<string>::iterator it = argVector.begin();
   size_t index = 0;
   while (it != argVector.end()) {
@@ -159,7 +180,7 @@ int Command::checkFiles(vector<string> & range) {
 
 void Command::checkVar(map<string, string> & map) {
   vector<string>::iterator argIt = argVector.begin();
-  argIt++;
+  //argIt++;
   while (argIt != argVector.end()) {
     string str = *argIt;
     stringstream ss(str);
