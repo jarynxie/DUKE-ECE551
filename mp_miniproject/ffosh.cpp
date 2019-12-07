@@ -29,14 +29,14 @@ void changeDir(string inputStr, map<string, string> map) {
   int result = chdir((char *)dir.c_str());
   //Check if it is successful or not
   if (result == -1) {
-    cout << "Failed to change directory\n";
+    cerr << "Failed to change directory\n";
   }
 }
 using namespace std;
 int main(int argc, char * argv[]) {
   //Check argc, if not currectly used, report the correct usage.
   if (argc != 1) {
-    cout << "Usage: ./ffosh\n";
+    cerr << "Usage: ./ffosh\n";
     exit(EXIT_FAILURE);
   }
   //Declare a shell object named cmdShell
@@ -126,10 +126,10 @@ int main(int argc, char * argv[]) {
       }
       //Report if the program runs successfully, report error otherwise
       if (WEXITSTATUS(wstatus) != 0) {
-        cout << "Program failed with code " << WEXITSTATUS(wstatus) << endl;
+        cerr << "Program failed with code " << WEXITSTATUS(wstatus) << endl;
       }
       else if (WIFSIGNALED(wstatus)) {
-        cout << "Terminated by signal " << WTERMSIG(wstatus) << endl;
+        cerr << "Terminated by signal " << WTERMSIG(wstatus) << endl;
       }
       else {
         cout << "Program was successful\n";

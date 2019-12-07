@@ -62,7 +62,7 @@ void Shell::initVar(void) {
 void Shell::setVar(string & inputStr) {
   //Check if the commad starts with "set"
   if (inputStr.substr(0, 4) != "set " || inputStr.length() < 5) {
-    cout << "Usage: set var value" << endl;
+    cerr << "Usage: set var value" << endl;
     return;
   }
   //Parse the input to get the string which contains variable name and it's value
@@ -77,27 +77,14 @@ void Shell::setVar(string & inputStr) {
       continue;
     }
     else {
-      cout << "Invalid variable name!" << endl;
+      cerr << "Invalid variable name!" << endl;
       return;
     }
   }
-  //PArse the variable's value.
+  //Parse the variable's value.
   string value = varnValue.substr(deli + 1, varnValue.length() - 1);
   //If user tries to change ECE551PATH, automically export it.
   ifChange551(var, value);
-  /*
-  if (var == "ECE551PATH") {
-    int setResult = setenv("ECE551PATH", (char *)value.c_str(), 1);
-    if (setResult == -1) {
-      cout << "Unable to change ECE551PATH!" << endl;
-    }
-    else {
-      cout << "Trying to change ECE551PATH, automically export it." << endl;
-      cout << "Run myenv to check if ECE551PATH was changed." << endl;
-      return;
-    }
-  }
-  */
   //Check if the variable already exists. If so, just change it's value
   if (varMap.find(var) != varMap.end()) {
     varMap.find(var)->second = value;
@@ -111,7 +98,7 @@ void Shell::setVar(string & inputStr) {
 void Shell::exportVar(string & inputStr) {
   //assert(inputStr.find("export") != string::npos);
   if (inputStr.substr(0, 7) != "export " || inputStr.length() < 8) {
-    cout << "Usage: export var" << endl;
+    cerr << "Usage: export var" << endl;
     return;
   }
   //Parse the variable's name according to the input string
@@ -119,7 +106,7 @@ void Shell::exportVar(string & inputStr) {
   //Check if this variable exists in the map, if not, it cannot be exported
   map<string, string>::iterator it = varMap.find(varName);
   if (it == varMap.end()) {
-    cout << "Variable not found!" << endl;
+    cerr << "Variable not found!" << endl;
     return;
   }
   //Create char * type's variable name and value
@@ -129,7 +116,7 @@ void Shell::exportVar(string & inputStr) {
   int setResult = setenv(name, value, 1);
   //Check if setenv is successfult. If not, report error
   if (setResult == -1) {
-    cout << "Failed to export the variable!" << endl;
+    cerr << "Failed to export the variable!" << endl;
     return;
   }
 }
@@ -141,7 +128,7 @@ void Shell::exportVar(string & inputStr) {
 void Shell::revVar(string & inputStr) {
   //Check if the input starts with "rev"
   if (inputStr.substr(0, 4) != "rev " || inputStr.length() < 5) {
-    cout << "Usage: rev var" << endl;
+    cerr << "Usage: rev var" << endl;
     return;
   }
   //Parse the variable name according to the input
@@ -149,7 +136,7 @@ void Shell::revVar(string & inputStr) {
   //Check if the variable exists in the map. If not, it cannot be reversed
   map<string, string>::iterator it = varMap.find(varName);
   if (it == varMap.end()) {
-    cout << "Variable not found!" << endl;
+    cerr << "Variable not found!" << endl;
     return;
   }
   //Reverse the value of variable
@@ -177,7 +164,7 @@ void Shell::ifChange551(string name, string value) {
     //Try to export ECE551PATH with new value
     int setResult = setenv("ECE551PATH", (char *)value.c_str(), 1);
     if (setResult == -1) {
-      cout << "Unable to change ECE551PATH!" << endl;
+      cerr << "Unable to change ECE551PATH!" << endl;
     }
     else {
       cout << "Trying to change ECE551PATH, automically export it." << endl;

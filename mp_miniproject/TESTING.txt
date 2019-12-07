@@ -210,8 +210,9 @@ Here, I choose that the user must EXPORT IT AGAIN after changing the variable's 
 However, if the user want to chnge "ECE551PATH", it will be automically exported. In order to check if the change is
 successful, you can run "myenv" after the change to see if it works (because now the search range has changed, "env"
 may not be found in ECE551PATH).
-Note2: Also as posted on Piazza, I can choose how to evaluate a variable. Here, I choose that in "set var value",
-everything after "var " is the value of this variable.
+Note2: Also as posted on Piazza, the value of a variable is literal, so everything after "var " is the value of this variable.
+Note3: As for variable replacement, I search the longest possible variable name greedly. Besides, if variable abc = 123,
+ece$abcece should be replaced with ece123ece.
 -------------------------------------------------------
 (3-1)
 case1:
@@ -373,4 +374,46 @@ This is correct because I changed the value of ECE551PATH, resulting in "status"
 And if you try to run "myenv", you can see that the value of it has been changed.
 
 ----------------- Test cases for step4 ----------------
+Note: Only support single redirection
+-------------------------------------------------------
 (4-1)
+ffosh:/home/jx95/ece551/mp_miniproject $echo test stdout redirection > ./testcases/redir_output.txt
+Program was successful
+ffosh:/home/jx95/ece551/mp_miniproject $cd testcases
+ffosh:/home/jx95/ece551/mp_miniproject/testcases $ls
+code  redir_output.txt	segfault  segfault.cpp
+Program was successful
+ffosh:/home/jx95/ece551/mp_miniproject/testcases $cat redir_output.txt
+test stdout redirection
+Program was successful
+
+This is correct because it redirects standard input for the command.
+
+(4-2)
+ffosh:/home/jx95/ece551/mp_miniproject $cd testcases
+ffosh:/home/jx95/ece551/mp_miniproject/testcases $ls
+code  redir_output.txt	segfault  segfault.cpp	sortLines  sortlines_input.txt
+Program was successful
+ffosh:/home/jx95/ece551/mp_miniproject/testcases $./sortLines < sortlines_input.txt
+aaa
+bb
+c
+eeeeee
+ff
+Program was successful
+
+This is correct. Here I use redirection to give input to the program from 079_sort_cpp, you can see that the lines are
+sorted and printed correctly.
+
+(4-3)
+ffosh:/home/jx95/ece551/mp_miniproject $/bin/happy 2> ./testcases/stderr_output.txt
+Program failed with code 1
+ffosh:/home/jx95/ece551/mp_miniproject $cd testcases
+ffosh:/home/jx95/ece551/mp_miniproject/testcases $ls
+code  redir_output.txt	segfault  segfault.cpp	sortLines  sortlines_input.txt	stderr_output.txt
+Program was successful
+ffosh:/home/jx95/ece551/mp_miniproject/testcases $cat stderr_output.txt
+execve: No such file or directory
+Program was successful
+
+This is correct because it redirects standard error correctly.
