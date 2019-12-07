@@ -94,17 +94,34 @@ void Command::parseArg(string & wholeStr) {
   }
   //Get the string of input that excludes the command name
   string str = wholeStr.substr(wholeStr.find(' ') + 1, wholeStr.length() - 1);
-
+  //Set a bool to indicate if in quotation mark
+  bool inQuote = false;
   for (size_t i = 0; i < str.length(); i++) {
-    //Set a bool to indicate if in quotation mark
-    bool inQuote = false;
-    //If contains \\, handle it later
+    //If contains \\, skip the second '\'
     if (i > 0 && str[i] == '\\' && str[i - 1] == '\\') {
+      //Check if reach the end
+      if (i == str.length() - 1 && !tempStr.empty()) {
+        argVector.push_back(tempStr);
+      }
       continue;
     }
     //Handle \"
     if (i > 0 && str[i] == '"' && str[i - 1] == '\\' && str[i - 2] != '\\') {
       tempStr[tempStr.length() - 1] = '"';
+      //Check if reach the end
+      if (i == str.length() - 1 && !tempStr.empty()) {
+        argVector.push_back(tempStr);
+      }
+      continue;
+    }
+
+    //Handle "\ "
+    if (i > 0 && str[i] == ' ' && str[i - 1] == '\\') {
+      tempStr[tempStr.length() - 1] = ' ';
+      //Check if reach the end
+      if (i == str.length() - 1 && !tempStr.empty()) {
+        argVector.push_back(tempStr);
+      }
       continue;
     }
 

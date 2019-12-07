@@ -1,0 +1,12 @@
+total 408
+-rw-rw-r-- 1 jx95 jx95  10519 Dec  7 17:17 cmd.h
+-rw-rw-r-- 1 jx95 jx95   7907 Nov 15 10:50 commandShell.txt
+-rwxrwxr-x 1 jx95 jx95 338712 Dec  7 17:17 ffosh.
+-rw-rw-r-- 1 jx95 jx95   4150 Dec  6 22:09 ffosh.cpp
+-rw-rw-r-- 1 jx95 jx95    164 Dec  4 10:48 Makefile
+-rw-rw-r-- 1 jx95 jx95  12413 Nov 15 10:50 numerics.txt
+-r--r----- 1 jx95 jx95      0 Dec  6 17:16 output.txt
+-rw-rw-r-- 1 jx95 jx95   2499 Nov 15 10:50 README
+-rw-rw-r-- 1 jx95 jx95   6096 Dec  6 22:08 shell.h
+drwxrwxr-x 2 jx95 jx95    212 Dec  7 17:36 testcases
+-rw-rw-r-- 1 jx95 jx95  14158 Dec  7 17:35 TESTING.txt
