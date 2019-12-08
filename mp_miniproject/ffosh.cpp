@@ -51,16 +51,17 @@ int main(int argc, char * argv[]) {
     //Get the name of current directory
     char * curDir = get_current_dir_name();
     //Print the prompt
-    cout << "ffosh:" << curDir << " $";
+    cout << "ffosh:" << curDir << " $ ";
     //Free the char * returned by get_current_dir_name()
     free(curDir);
     string resultStr;
     //Get the variable map
     map<string, string> varMap = cmdShell.getVarMap();
     //If input encountered EOF, exist the shell
-    while (!getline(cin, resultStr)) {
+    if (!getline(cin, resultStr)) {
       cout << endl;
-      exit(EXIT_SUCCESS);
+      break;
+      //exit(EXIT_SUCCESS);
     }
     //If type "exit", exit the shell
     if (resultStr.substr(0, 4) == "exit") {
