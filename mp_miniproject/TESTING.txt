@@ -77,7 +77,8 @@ Program was successful
 - Reason:
 This is correct because "ECE551PATH" is correctly initialized by "PATH".
 
-(2-2) ls
+(2-2)
+case1:
 - Run: ls
 - Output:
 Makefile     TESTING.txt~      ffosh.	     shell.h	     testcases
@@ -86,6 +87,11 @@ TESTING.txt  commandShell.txt  numerics.txt  test_input.txt
 Program was successful
 - Reason:
 This is correct because it searches the ECE551PATH and correctly execute /bin/ls
+
+case2:
+- Run: "ls"
+- Output: (same as above)
+- Reason: ls is in quotation marks which should be removed
 
 (2-3) status
 - Run: status

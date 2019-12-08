@@ -54,8 +54,11 @@ void Command::parseCmdName(string & cinput, char *& environ, map<string, string>
   string tempName;
   //Get the name of the command
   getline(inStream, tempName, ' ');
+  if (tempName[0] == '"' && tempName[tempName.length() - 1] == '"') {
+    tempName = tempName.substr(1, tempName.length() - 2);
+  }
   //If it has '/', just push it to the vector
-  if (tempName.find('/') != string::npos) {
+  if (tempName[0] == '/' || tempName.substr(0, 2) == "./") {
     cmdName = tempName;
     argVector.push_back(tempName);
     return;
