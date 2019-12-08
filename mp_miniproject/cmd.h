@@ -176,6 +176,11 @@ void Command::execute(string & inputStr, map<string, string> & map) {
   size_t index = 0;
   int ifRedir = checkRedir();
   //If need redirection, the last two arguments do not pass to the program
+  if (argVector[argVector.size() - 1] == "<" || argVector[argVector.size() - 1] == ">" ||
+      argVector[argVector.size() - 1] == "2>") {
+    cerr << "Please specify redirection file!" << endl;
+    exit(EXIT_FAILURE);
+  }
   if (ifRedir == true) {
     end = argVector.end() - 2;
   }
@@ -191,10 +196,12 @@ void Command::execute(string & inputStr, map<string, string> & map) {
     if (id != -1) {
       close(id);
     }
+    if (id == -1) {
+      return;
+    }
   }
   //execute the program
   execve(tempArgv[0], tempArgv, environ);
-  return;
 }
 
 //This method is to create the search range for the command name
@@ -311,6 +318,7 @@ int Command::redir(void) {
   //If open returns -1, fail to open the file
   if (fileid == -1) {
     cerr << "Fail to open the specified file!" << endl;
+    exit(EXIT_FAILURE);
   }
   //redirects standard input for the command
   else if (*type == "<") {

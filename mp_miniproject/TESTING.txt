@@ -1,19 +1,19 @@
+----------------------commandShell---------------------
 
 This is the test cases for my command shell
 
 Usage: As specified in commandShell.txt, type "./ffosh."  to run the shell
 
-There are xxx test cases in total: (step1) + (step2)
-
 
 ----------------- Test cases for step1 ----------------
+
 (1-1)
 jx95@ece551:~/ece551/mp_miniproject$ ./ffosh. run
 Usage: ./ffosh.
 
 This is correct because argc must be 1 to start the shell
 
-(1-1)
+(1-2)
 - Run: $/bin/ls
 - Output:
 '#TESTING.txt#'   TESTING.txt~	     ffosh.cpp	    test_input.txt
@@ -25,19 +25,19 @@ Program was successful
 This is correct because I typed the full path of "ls" and it successfully listed the files in the current directory.
 My prompt also correctly shows that the the program was successful.
 
-(1-2)
+(1-3)
 - Run: exit
 - Output: no output, my shell exists
 - Reason:
 This is correct because when type "exit", the shell should exit.
 
-(1-3)
+(1-4)
 - Run: (type EOF: ctrl + D)
 - Output: no output, my shell exists
 - Reason:
 This is correct because when encountered EOF, the shell should exit.
 
-(1-4)
+(1-5)
 - Run:
 ffosh:/home/jx95/ece551/mp_miniproject $cd testcases
 ffosh:/home/jx95/ece551/mp_miniproject/testcases $./code
@@ -51,14 +51,14 @@ Program was successful
 This is correct because I copied this file from earlier assignment and the output is as expected.
 My prompt also correctly shows new current directory before the $, which is the requirement in Step3.
 
-(1-5)
+(1-6)
 - Run: ./segfault
 - Output:
 Terminated by signal 11
 - Reason:
 This is correct because I wrote a file which has segfault in it, and my shell correctly shows its signal number(11).
 
-(1-6)
+(1-7)
 - Run: ./testcases/exit_failure
 - Output:
 Program failed with code 1
@@ -66,6 +66,7 @@ Program failed with code 1
   This is correct because this program only return EXIT_FAILURE (exit code 1).
 
 ----------------- Test cases for step2 ----------------
+
 (2-1) initialize ECE551PATH
 - Run: env
 - Output:
@@ -181,7 +182,7 @@ This is correct because it shows that command can now take arguments.
 - Output: same as before
 - Reason: same as before
 
-(2-10)
+(2-11)
 - Run: echo a b 23
 - Output:
 a b 23
@@ -197,7 +198,6 @@ Program was successful
 - Reason:
 This is correct because it supports escaped backslashes (\\)
 
-
 (2-13)
 - Run: echo \"
 - Output:
@@ -205,7 +205,8 @@ This is correct because it supports escaped backslashes (\\)
 Program was successful
 - Reason:
 This is correct because it supports escaped quotation marks (\")
-(2-11)
+
+(2-14)
 - Run: echo          a               b     23
 - Output:
 a b 23
@@ -213,7 +214,7 @@ Program was successful
 - Reason
 This is correct because it successfully skips the whitespaces between arguments.
 
-(2-12)
+(2-15)
 - Run: echo "a   b"  c        "def    ghi"
 - Output:
 a   b c def    ghi
@@ -221,7 +222,7 @@ Program was successful
 - Reason:
 This is correct because it supports literal whitespaces when using "
 
-(2-13)
+(2-16)
 - Run: echo "\"hello world\""    "a\\b\\c d\\"
 - Output:
 "hello world" a\b\c d\
@@ -229,7 +230,7 @@ Program was successful
 - Reason:
 This is correct because it supports escaped quotation marks and backslashed
 
-(2-14)
+(2-17)
 - Run: echo a\\\b
 - Output:
 a\b
@@ -237,7 +238,7 @@ Program was successful
 - Reason:
 This is just another example to show that escaping is well supported.
 
-(2-15)
+(2-18)
 - Run: echo this\ is\ a\ test
 - Output:
 this is a test
@@ -245,7 +246,7 @@ Program was successful
 - Reason:
 This is correct because backslash followed by a space should by replaced with a space.
 
-(2-15)
+(2-19)
 - Run: echo "aaaa b
 - Output:
 Unclosed quotation!
@@ -253,7 +254,7 @@ Program was successful
 - Reason:
 This is correct because it reports error when encountered unclosed quotation mark.
 
-(2-16)
+(2-20)
 - Run: pwd
        set PATH 123
        export PATH
@@ -269,15 +270,20 @@ This is correct because it shows that changing PATH cannot affect the search ran
 As a result, "pwd" can also be found in the path specified by ECE551PATH
 
 ----------------- Test cases for step3 ----------------
+
 Note1: As stated on Piazza, I can choose if to automically export the variable that's already been exported before.
 Here, I choose that the user must EXPORT IT AGAIN after changing the variable's value,
-However, if the user want to chnge "ECE551PATH", it will be automically exported. In order to check if the change is
+However, if the user want to change "ECE551PATH", it will be automically exported. In order to check if the change is
 successful, you can run "myenv" after the change to see if it works (because now the search range has changed, "env"
 may not be found in ECE551PATH).
+
 Note2: Also as posted on Piazza, the value of a variable is literal, so everything after "var " is the value of this variable.
+
 Note3: As for variable replacement, I search the longest possible variable name greedly. Besides, if variable abc = 123,
 ece$abcece should be replaced with ece123ece.
+
 -------------------------------------------------------
+
 (3-1)
 - Run & Output:
 ffosh:/home/jx95/ece551/mp_miniproject $cd ./testcases
@@ -309,7 +315,7 @@ This is correct because "notexist" doesn't exist, so we cannot change the curren
 - Reason:
 This is correct because it shows all the variables.
 
-(3-3)
+(3-4)
 - Run: echo $HOME
 - Output:
 /home/jx95
@@ -317,7 +323,7 @@ Program was successful
 - Reason:
 This is correct because it replaces $varname with its value in the argument
 
-(3-4)
+(3-5)
 - Run: echo $LOGNAME=jx95testtest
 - Output:
 jx95=jx95testtest
@@ -325,7 +331,7 @@ Program was successful
 - Reason: 
 This is correct because it supports variable expansion.
 
-(3-5)
+(3-6)
 - Run: echo $VISUAL$SHELL
 - Output:
 emacs -nw/bin/bash
@@ -333,7 +339,7 @@ Program was successful
 - Reason:
 This is another variable expansion example.
 
-(3-6)
+(3-7)
 - Run: echo $nosuchvar
 - Output:
 $nosuchvar
@@ -341,14 +347,14 @@ Program was successful
 - Reason:
 This is correct because there is no variable named "nosuchvar", so it just print the string out.
 
-(3-7)
+(3-8)
 - Run: $PATH
 - Output:
 Command /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games not found
 - Reason:
 This is correct because the program name is now replaced with the variable's value and it cannot be found.
 
-(3-8)
+(3-9)
 - Run: set xjy 12345
        env
        echo $xjy
@@ -360,21 +366,21 @@ Program was successful
 There is no such variable that named "xjy" when running "env".
 But I when typing "$xjy", my shell replaces it with its value.
 
-(3-9)
+(3-10)
 - Run: set
 - Output:
 Usage: set var value
 - Reason:
 This is correct because the test case didn't follow the correct usage.
 
-(3-10)
+(3-11)
 - Run: set 12!cww 32412
 - Output:
 Invalid variable name!
 - Reason:
 This is correct because the variable name is invalid, it must be a combination of letters, underscores and numbers.
 
-(3-11)
+(3-12)
 - Run: set xjy 123
        env
        export xjy
@@ -386,7 +392,7 @@ xjy=123
 - Reason:
 This is correct because variable can only be put in the environment after calling "export".
 
-(3-12)
+(3-13)
 - Run: set xjy 11 22 33 aa
        echo $xjy
 - Output:       
@@ -395,7 +401,7 @@ Program was successful
 - Reason:
 This is correct because I choose to evaluate a variable with eveything after "var ", including spaces
 
-(3-3)
+(3-14)
 - Run: set test abc
        set try 123
        echo $test$try
@@ -405,7 +411,7 @@ Program was successful
 - Reason:
 This is the case stated in README and it's correct because here two variable names were changed to their values.
 
-(3-13)
+(3-15)
 - Run: set cdvar ..
        cd $cdvar
 - Output:
@@ -413,21 +419,21 @@ This is the case stated in README and it's correct because here two variable nam
 - Reason:
 This is correct because it replaces "cdvar" with its value and change the current directory accordingly.
 
-(3-14)
+(3-16)
 - Run: export
 - Output:
 Usage: export var
 - Reason:
 This is correct because the test case didn't use the valid usage to export variable, variable name must be included.
 
-(3-15)
+(3-17)
 - Run: export notexist
 - Output:
 Variable not found!
 - Reason:
 This is correct because the variable doesn't exist, so I cannot export it.
 
-(3-16)
+(3-18)
 - Run: echo $xjy
        rev xjy
        echo $xjy
@@ -439,14 +445,14 @@ Program was successful
 - Reason:
 This is correct because the value of the specified variable is successfully reversed.
 
-(3-17)
+(3-19)
 - Run: rev notexist
 - Output:
 Variable not found!
 - Reason:
 This is correct because the variable doesn't exist, so it cannot be reversed.
 
-(3-18)
+(3-20)
 - Run: status
        set ECE551PATH /usr/games:/usr/local/games
        status
@@ -471,23 +477,22 @@ This is correct because I changed the value of ECE551PATH, resulting in "status"
 And if you try to run "myenv", you can see that the value of it has been changed.
 
 ----------------- Test cases for step4 ----------------
-Note: Only support single redirection
+
+Note1: Only support single redirection
+
+Note2: Incorrect usage (e.g. didn't specify indirection file) may cause this program to exit with code 1 and unclean
+valgrind. However, as stated on Piazza "If a program exits with failure status, you do not need to valgrind cleanly."
+So, if you type "exit" after this program exited, you will see that the final valgrind is perfectly clean.
+
 -------------------------------------------------------
+
 (4-1)
-- Run: echo test stdout redirection > ./testcases/redir_output.txt
-       cd testcases
-       ls
-       cat redir_output.txt
+- Run: cat <
 - Output:
-Program was successful
-
-code  redir_output.txt	segfault  segfault.cpp
-Program was successful
-
-test stdout redirection
-Program was successful
+Please specify redirection file!
+Program failed with code 1
 - Reason:
-This is correct because it redirects standard input for the command.
+This is correct because it doesn't follow the redirection usage
 
 (4-2)
 - Run: ./sortLines < sortlines_input.txt
@@ -503,6 +508,22 @@ This is correct. Here I use redirection to give input to the program from 079_so
 sorted and printed correctly.
 
 (4-3)
+- Run: ./sortLines < notexist.txt
+- Output:
+Fail to open the specified file!
+Program failed with code 1
+- Reason:
+This is correct beccause for stdin redirection, if the file doesn't exist, it will not create this file.
+
+(4-4)
+- Run: echo 1234 >
+- Output:
+Please specify redirection file!
+Program failed with code 1
+- Reason:
+This is correct because it doesn't follow the redirection usage
+
+(4-5)
 - Run: ls -l > ./testcases/ls_output.txt
       cat ./testcases/ls_output.txt
 - Output:
@@ -525,7 +546,31 @@ Program was successful
 - Reason:
 This is correct and it is another stdout redirection.
 
-(4-4)
+(4-6)
+- Run: echo test stdout redirection > ./testcases/redir_output.txt
+       cd testcases
+       ls
+       cat redir_output.txt
+- Output:
+Program was successful
+
+code  redir_output.txt  segfault  segfault.cpp
+Program was successful
+
+test stdout redirection
+Program was successful
+- Reason:
+This is correct because it redirects standard input for the command.
+
+(4-7)
+- Run: /bin/happy >
+- Output:
+Please specify redirection file!
+Program failed with code 1
+- Reason:
+This is correct because it doesn't follow the redirection usage.
+
+(4-8)
 - Run: /bin/happy 2> ./testcases/stderr_output.txt
        cd testcases
        cat stderr_output.txt
