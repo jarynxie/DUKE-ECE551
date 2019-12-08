@@ -140,7 +140,7 @@ void Command::parseArg(string & wholeStr) {
       //If reaches the end of input but still don't see a closed quotation mark, report error
       if (i == str.length() - 1) {
         cerr << "Unclosed quotation!\n";
-        return;
+        exit(EXIT_FAILURE);
       }
     }
     else {
